@@ -28,6 +28,7 @@ function main(){
   $('.instagram').hide();
   $('.youtube').hide();
   $('.github').hide();
+  $('.makeEpicAppear').hide();
   $('.yearsParticipated').hide();
   // $('form').show();
   //

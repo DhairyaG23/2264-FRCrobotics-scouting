@@ -77,38 +77,38 @@ function getKeys() {
     }
 // }
 }
-// var items;
-// var l = 2;
-// function showInfo() {
-//
-//     if (l%2 == 0) {
-//     var items = document.getElementsByClassName("inline-collapsable");
-//     l++;
-//   } else {
-//     var items = document.getElementsByClassName("benis");
-//     l++;
-//   }
-//     var size = items.length;
-//
-//     for (var i=0; i < size; i++) {
-//       var bc = size - 1 - i;
-//       console.log(bc);
-//       console.log(size)
-//       console.log(items.length);
-//       console.log("-------");
-//
-//       if (l%2 == 0) {
-//       items[bc].classList.toggle("inline-collapsable");
-//       items[bc].classList.toggle("benis");
-//     } else {
-//       items[bc].classList.toggle("benis");
-//       items[bc].classList.toggle("inline-collapsable");
-//     }
-//
-//
-//
-//     }
-// }
+var items;
+var l = 2;
+function showInfo() {
+
+    if (l%2 == 0) {
+    var items = document.getElementsByClassName("inline-collapsable");
+    l++;
+  } else {
+    var items = document.getElementsByClassName("benis");
+    l++;
+  }
+    var size = items.length;
+
+    for (var i=0; i < size; i++) {
+      var bc = size - 1 - i;
+      console.log(bc);
+      console.log(size)
+      console.log(items.length);
+      console.log("-------");
+
+      if (l%2 == 0) {
+      items[bc].classList.toggle("inline-collapsable");
+      items[bc].classList.toggle("benis");
+    } else {
+      items[bc].classList.toggle("benis");
+      items[bc].classList.toggle("inline-collapsable");
+    }
+
+
+
+    }
+}
 
 //Get the team scores
 function getTeamScores (tKey, eKey) {
@@ -211,7 +211,6 @@ function getTeamScores (tKey, eKey) {
 
 
           var tr = document.createElement('tr');
-          var tr2 = document.createElement('tr');
           var teamNames = document.createElement('td');
           var teamScores = document.createElement('td');
           var autoScores = document.createElement('td');
@@ -220,12 +219,15 @@ function getTeamScores (tKey, eKey) {
           var innerNums = document.createElement('td');
           var bottomNums = document.createElement('td');
 
+          outerNums.classList.toggle("inline-collapsable");
+          innerNums.classList.toggle("inline-collapsable");
+          bottomNums.classList.toggle("inline-collapsable");
+
 
           var bigbig = ('getMyTeamInfoVar(\"' + teamNumArray[p] + '\")');
 
 
           tr.classList.toggle('inline-centering');
-          tr2.classList.toggle('inline-collapsable');
 
           tr.setAttribute("onClick", bigbig);
 
@@ -233,7 +235,6 @@ function getTeamScores (tKey, eKey) {
           var table = document.getElementById('table-items');
 
           table.appendChild(tr);
-          table.appendChild(tr2);
           // table.appendChild(empty);
           tr.appendChild(teamNames);
           tr.appendChild(teamScores);
@@ -276,6 +277,7 @@ var score;
 function putItems() {
         $('.loading').fadeOut(600);
         $('.sortable').fadeIn(1000);
+        $('.makeEpicAppear').fadeIn(500);
 }
 
 var urlKey;

@@ -60,6 +60,7 @@ eNameRequest.onreadystatechange = function() {
 var strUser;
 // Gets the event the user chose and forwards it to another function
 function sendEvent(){
+    $('.makeEpicAppear').fadeOut(400);
     $('.sortable').fadeOut(400);
     $('.loading').fadeIn(100);
     params.delete('listID');

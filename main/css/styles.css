@@ -124,6 +124,27 @@ tr {
   font-family: 'Roboto Mono', monospace;
 }
 
+.makeEpicAppear {
+      background-color: white;  /*Green */
+  border: none;
+  color: black;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  padding-right: 1.5vw;
+  padding-left: 1.5vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vh;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/*
+.makeEpicAppear:hover{
+    background-color: blue;
+}
+*/
+
 .numHeading {
     font-family: 'Abel', sans-serif;
     font-size: 3vh;
@@ -225,7 +246,7 @@ table.sortable thead {
   margin-bottom: 4vh;
 }
 
-.sortable tr:nth-child(4n-3){background-color: rgba(0, 0, 0, 0.2);}
+.sortable tr:nth-child(odd){background-color: rgba(0, 0, 0, 0.2);}
 
 .sortable tr:hover {background-color: #ddd;}
 
