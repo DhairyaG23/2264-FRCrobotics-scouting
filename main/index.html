@@ -9,7 +9,7 @@
         <title>Scouting</title>
         <!-- Imports -->
 
-        <link rel="stylesheet" type="text/css" href="//wpcc.io/lib/1.0.2/cookieconsent.min.css"/><script src="//wpcc.io/lib/1.0.2/cookieconsent.min.js"></script><script>window.addEventListener("load", function(){window.wpcc.init({"border":"thin","corners":"small","colors":{"popup":{"background":"#f6f6f6","text":"#000000","border":"#555555"},"button":{"background":"#555555","text":"#ffffff"}},"content":{"href":"http://scouting.wayzatarobotics2264.com/cookie-policy.html","link":"Cookie Policy"},"position":"bottom-right"})});</script>
+<!--        <link rel="stylesheet" type="text/css" href="//wpcc.io/lib/1.0.2/cookieconsent.min.css"/><script src="//wpcc.io/lib/1.0.2/cookieconsent.min.js"></script><script>window.addEventListener("load", function(){window.wpcc.init({"border":"thin","corners":"small","colors":{"popup":{"background":"#f6f6f6","text":"#000000","border":"#555555"},"button":{"background":"#555555","text":"#ffffff"}},"content":{"href":"http://scouting.wayzatarobotics2264.com/cookie-policy.html","link":"Cookie Policy"},"position":"bottom-right"})});</script>-->
 
         <link rel="apple-touch-startup-image" href="apple-touch-icon.png">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -30,7 +30,18 @@
         <script src="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
+        <!-- Cookie Consent by https://www.PrivacyPolicies.com -->
+        <script type="text/javascript" src="//www.privacypolicies.com/public/cookie-consent/3.0.0/cookie-consent.js"></script>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+        cookieconsent.run({"notice_banner_type":"interstitial","consent_type":"implied","palette":"light","language":"en","website_name":"FRC Scouting","cookies_policy_url":"https://scouting.wayzatarobotics2264.com"});
+        });
+        </script>
 
+        <noscript><a href="https://www.PrivacyPolicies.com/cookie-consent/">Cookie Consent by Privacy Policies Generator</a></noscript>
+        <!-- End Cookie Consent -->
+
+        
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-title" content="FRC Scouting">
     </head>
@@ -62,8 +73,9 @@
             <div class="showNum">
                    <h4 class="numHeading" id="numHeading"></h4>
                    <button  id = "myTeamButton" type= "button" class="myTeamButton"> <a class = "normal" href="my-team.html"> My Team Info</a></button>
-                <hr>
+              
                </div>
+              <hr>
               <!-- Form and Button -->
               <form onsubmit="return false;">
                 <select class="js-example-basic-single" name="state" id="event-chosen">
@@ -71,7 +83,7 @@
                 </select>
               </form>
               <button  class="submit-form" type="submit" onclick="sendEvent()">Submit</button>
-              <button onClick="showInfo()"> Show More Info </button>
+              <button onClick="showInfo()" class='makeEpicAppear' id='makeEpicAppear'> Show More Info </button>
 
 
             <h3 class="event-name" id="event-name"></h3>

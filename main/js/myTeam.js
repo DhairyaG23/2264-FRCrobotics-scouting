@@ -45,10 +45,13 @@ function checkCookie(){
 
 }
 
+var cookieNumberInt = parseInt(cookieNumber);
+
 function workCookie(){
 
    setTimeout(function(){
     if(cookieNumber.length >= 1){
+        if(Number.isInteger(cookieNumberInt)){
         $('.teamNumForm').hide();
         document.getElementById('numHeading').innerHTML = 'Your Team Number: <a href=my-team.html>' + cookieNumber + "</a> (<a onclick='deleteCookie()' href=''>change/remove team number</a>)";
         $('.showNum').show();
@@ -56,6 +59,7 @@ function workCookie(){
         $('.teamNumForm').show();
         $('.showNum').hide();
     }
+   }
   }, 1000)
 }
 

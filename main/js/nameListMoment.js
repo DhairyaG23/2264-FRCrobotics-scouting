@@ -277,6 +277,7 @@ var score;
 function putItems() {
         $('.loading').fadeOut(600);
         $('.sortable').fadeIn(1000);
+        $('.makeEpicAppear').fadeIn(500);
 }
 
 var urlKey;
