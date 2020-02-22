@@ -14,19 +14,28 @@ var teamScoreRequestObj; //The parsed JSON file of getTeamScores
 var keyk; //A Variable that cycles from 0-2 to cycle througha and check which team contains the key of the target team
 var autoScore;
 var TOPScore;
-var teamAllianceArray= []; //A variable that saves what alliance a team is on
 var blueKeyArray = []; //Array with all the blue team keys
 var eventScoreArray = []; //Array with all scores of each team from ana event
 var avgScoreArray = []; //Array of averagre scores
+var outerArray = [];
+var innerArray = [];
+var bottomArray = [];
 var autoArray = [];
 var tOPArray;
 var avgautoArray = [];
 var avgtOPArray = [];
 var bigbig;
+var innerVar;
+var outerVar;
+var bottomVar;
+var innerAvg;
+var outerAvg;
+var bottomAvg;
 //Reset stuff
 var i;
 var u;
 var mainTable = document.getElementById('table');
+var tr2;
 
 var avg; //Average value for a given team
 var autoTotal;
@@ -43,6 +52,9 @@ $(document).ready(function() {
 function reset() {
     index = 0;
     eventScoreArray = [];
+    outerArray = [];
+    innerArray = [];
+    bottomArray = [];
     avgScoreArray = [];
     avgautoArray = [];
     autoArray = [];
@@ -53,27 +65,55 @@ function reset() {
 
 //Get the new Team Key to work with
 function getKeys() {
-  // $('.table').hide();
-  // for(index = 0; index < teamArray.length; index++) {
+
   if(index < teamArray.length) {
       currentTeam = tKeyArray[index];
-      // //console.log(index);
-      // //console.log(currentTeam);
-      // //console.log(currentEvent);
+
       getTeamScores(currentTeam, currentEvent);
       index++;
     } else {
-      // //console.log("done");
-      // //console.log(avgScoreArray);
+
       putItems();
     }
 // }
 }
+// var items;
+// var l = 2;
+// function showInfo() {
+//
+//     if (l%2 == 0) {
+//     var items = document.getElementsByClassName("inline-collapsable");
+//     l++;
+//   } else {
+//     var items = document.getElementsByClassName("benis");
+//     l++;
+//   }
+//     var size = items.length;
+//
+//     for (var i=0; i < size; i++) {
+//       var bc = size - 1 - i;
+//       console.log(bc);
+//       console.log(size)
+//       console.log(items.length);
+//       console.log("-------");
+//
+//       if (l%2 == 0) {
+//       items[bc].classList.toggle("inline-collapsable");
+//       items[bc].classList.toggle("benis");
+//     } else {
+//       items[bc].classList.toggle("benis");
+//       items[bc].classList.toggle("inline-collapsable");
+//     }
+//
+//
+//
+//     }
+// }
+
 //Get the team scores
 function getTeamScores (tKey, eKey) {
 
-    //Open the Request
-    // //console.log("running");
+
     var teamScoreRequest = new XMLHttpRequest();
     teamScoreRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/" + tKey + "/event/" + eKey + "/matches" , true);
     teamScoreRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
@@ -81,7 +121,6 @@ function getTeamScores (tKey, eKey) {
     //Reset the Team Totals and Averages
     teamTotal = 0;
     teamAvg = 0;
-    teamAllianceArray = [];
     autoAvg = 0;
     autoTotal = 0;
     autoArray = [];
@@ -89,6 +128,16 @@ function getTeamScores (tKey, eKey) {
     tOPTotal = 0;
     tOPArray = [];
     eventScoreArray = [];
+    outerArray = [];
+    innerArray = [];
+    bottomArray = [];
+    bottomAvg = 0;
+    bottomVar = 0;
+    innerAvg = 0;
+    innerVar = 0;
+    outerAvg = 0;
+    outerVar = 0;
+
 
     teamScoreRequest.onload = function() {
         teamScoreRequestObj = JSON.parse(this.responseText);
@@ -98,84 +147,118 @@ function getTeamScores (tKey, eKey) {
             blueKeyArray = teamScoreRequestObj[matchNum].alliances.blue.team_keys;
             for(keyk = 0; keyk < 2; keyk++) {
                 if(tKey == blueKeyArray[keyk]) {
-                  teamAlliance = "blue";
-                    teamAllianceArray.push("blue");
-                    eventScoreArray.push(teamScoreRequestObj[matchNum].alliances.blue.score);
-                    autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.autoPoints);
-                    tOPArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.teleopPoints);
+                    teamAlliance = "blue";
+
+                    teamTotal += teamScoreRequestObj[matchNum].alliances.blue.score
+                    outerVar += teamScoreRequestObj[matchNum].score_breakdown.blue.autoCellsOuter + teamScoreRequestObj[matchNum].score_breakdown.red.teleopCellsOuter;
+                    innerVar += teamScoreRequestObj[matchNum].score_breakdown.blue.autoCellsInner + teamScoreRequestObj[matchNum].score_breakdown.red.teleopCellsInner;
+                    bottomVar += teamScoreRequestObj[matchNum].score_breakdown.blue.autoCellsBottom + teamScoreRequestObj[matchNum].score_breakdown.red.teleopCellsBottom;
+                    autoTotal += teamScoreRequestObj[matchNum].score_breakdown.blue.autoPoints;
+                    tOPTotal += teamScoreRequestObj[matchNum].score_breakdown.blue.teleopPoints;
                 }
             }
             //FIX LINE UNDERNEATH!!!!
             if(teamAlliance == "blue") {
 
             } else {
-                teamAllianceArray.push("red");
-                eventScoreArray.push(teamScoreRequestObj[matchNum].alliances.red.score);
-                autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.autoPoints);
-                tOPArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.teleopPoints);
+                teamTotal += teamScoreRequestObj[matchNum].alliances.red.score
+                outerVar += teamScoreRequestObj[matchNum].score_breakdown.red.autoCellsOuter + teamScoreRequestObj[matchNum].score_breakdown.red.teleopCellsOuter;
+                innerVar += teamScoreRequestObj[matchNum].score_breakdown.red.autoCellsInner + teamScoreRequestObj[matchNum].score_breakdown.red.teleopCellsInner;
+                bottomVar += teamScoreRequestObj[matchNum].score_breakdown.red.autoCellsBottom + teamScoreRequestObj[matchNum].score_breakdown.red.teleopCellsBottom;
+                autoTotal += teamScoreRequestObj[matchNum].score_breakdown.red.autoPoints;
+                tOPTotal += teamScoreRequestObj[matchNum].score_breakdown.red.teleopPoints;
             }
             teamAlliance = "";
 
           }
+//6.39
+          // for(var i = 0; i < eventScoreArray.length; i++ ){
+          //     teamTotal += parseInt(eventScoreArray[i], 10 ); //don't forget to add the base
+          //
+          // }
+          var avg = (teamTotal/teamScoreRequestObj.length).toFixed(2);
 
-          for(var i = 0; i < eventScoreArray.length; i++ ){
-              teamTotal += parseInt(eventScoreArray[i], 10 ); //don't forget to add the base
-              //console.log(eventScoreArray[i]);
-          }
-          var avg = (teamTotal/eventScoreArray.length).toFixed(2);
+          // for(var u = 0; u < autoArray.length; u++ ){
+          //     autoTotal += parseInt(autoArray[u], 10 ); //don't forget to add the base
+          // }
 
-          for(var u = 0; u < autoArray.length; u++ ){
-              autoTotal += parseInt(autoArray[u], 10 ); //don't forget to add the base
-          }
+          var autoAvg = (autoTotal/teamScoreRequestObj.length).toFixed(2);
 
-          var autoAvg = (autoTotal/autoArray.length).toFixed(2);
+          // for(var u = 0; u < tOPArray.length; u++ ){
+          //     tOPTotal += parseInt(tOPArray[u], 10 ); //don't forget to add the base
+          // }
 
-          for(var u = 0; u < tOPArray.length; u++ ){
-              tOPTotal += parseInt(tOPArray[u], 10 ); //don't forget to add the base
-          }
+          var tOPAvg = (tOPTotal/teamScoreRequestObj.length).toFixed(2);
 
-          var tOPAvg = (tOPTotal/tOPArray.length).toFixed(2);
+          // for(var u = 0; u < innerArray.length; u++ ){
+          //     innerVar += parseInt(innerArray[u], 10 ); //don't forget to add the base
+          // }
+
+          var innerAvg = (innerVar/teamScoreRequestObj.length).toFixed(2);
+
+          // for(var u = 0; u < outerArray.length; u++ ){
+          //     outerAvg += parseInt(outerArray[u], 10 ); //don't forget to add the base
+          // }
+
+          var outerAvg = (outerVar/teamScoreRequestObj.length).toFixed(2);
+
+          // for(var u = 0; u < bottomArray.length; u++ ){
+          //     bottomVar += parseInt(bottomArray[u], 10 ); //don't forget to add the base
+          // }
+
+          var bottomAvg = (bottomVar/teamScoreRequestObj.length).toFixed(2);
+
+
 
           var tr = document.createElement('tr');
+          var tr2 = document.createElement('tr');
           var teamNames = document.createElement('td');
           var teamScores = document.createElement('td');
           var autoScores = document.createElement('td');
           var tOPScores = document.createElement('td');
-          // var empty = document.createElement('tr');
-          // //console.log('getMyTeamInfoVar("frc"'  + teamNumArray[p]')');
+          var outerNums = document.createElement('td');
+          var innerNums = document.createElement('td');
+          var bottomNums = document.createElement('td');
+
+
           var bigbig = ('getMyTeamInfoVar(\"' + teamNumArray[p] + '\")');
 
 
-
-
           tr.classList.toggle('inline-centering');
+          tr2.classList.toggle('inline-collapsable');
+
           tr.setAttribute("onClick", bigbig);
+
+
           var table = document.getElementById('table-items');
 
           table.appendChild(tr);
+          table.appendChild(tr2);
           // table.appendChild(empty);
           tr.appendChild(teamNames);
           tr.appendChild(teamScores);
           tr.appendChild(autoScores);
           tr.appendChild(tOPScores);
+
+          tr.appendChild(bottomNums);
+          tr.appendChild(outerNums);
+          tr.appendChild(innerNums);
+
           // //console.log("P is" + p);
           teamNames.innerHTML = teamArray[p] + " - " + teamNumArray[p];
           teamScores.innerHTML = avg;
           autoScores.innerHTML = autoAvg;
           tOPScores.innerHTML = tOPAvg;
+          innerNums.innerHTML = innerAvg;
+          outerNums.innerHTML = outerAvg;
+          bottomNums.innerHTML =bottomAvg;
+
           // empty.innerHTML = "";
 
 
-          // //console.log(autoArray);
-          // //console.log(eventScoreArray);
-          // //console.log(avg);
-          // //console.log(autoAvg);
-          //
-          // avgScoreArray.push(avg);
-          // avgautoArray.push(autoAvg);
-          //
+
           eventScoreArray = [];
-          teamAllianceArray = [];
+
           autoArray = [];
           p++;
           getKeys();
@@ -191,36 +274,8 @@ var name;
 var score;
 
 function putItems() {
-  // //console.log("Aye aye capn");
-    // table = document.getElementById('table-items');
-    // for(p=0; p < avgScoreArray.length; p++) {
-      // //console.log("spicy")
-        // var tr = document.createElement('tr');
-        // var teamNames = document.createElement('td');
-        // var teamScores = document.createElement('td');
-        // var autoScores = document.createElement('td');
-
-        // tr.classList.toggle('inline-centering');
-        //
-        // table.appendChild(tr);
-        // tr.appendChild(teamNames);
-        // tr.appendChild(teamScores);
-        // tr.appendChild(autoScores);
-
-        // name = teamArray[p];
-        // score = avgScoreArray[p];
-        // autoScore = avgautoArray[p];
-
-
-        // teamNames.innerHTML = name;
-        // teamScores.innerHTML = score;
-        // autoScores.innerHTML = autoScore;
         $('.loading').fadeOut(600);
         $('.sortable').fadeIn(1000);
-  // }
-
-
-
 }
 
 var urlKey;
