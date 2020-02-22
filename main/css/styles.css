@@ -78,7 +78,7 @@ h5 {
   display: inline-block;
   font-size: 2vh;
   font-family: 'Roboto Mono', monospace;
-  
+
 }
 
 .myTeamButton {
@@ -215,7 +215,7 @@ table.sortable thead {
     color:#666666;
     font-weight: bold;
     cursor: default;
-    
+
 }
 
 .sortable {
@@ -225,7 +225,7 @@ table.sortable thead {
   margin-bottom: 4vh;
 }
 
-.sortable tr:nth-child(even){background-color: rgba(0, 0, 0, 0.2);}
+.sortable tr:nth-child(4n-3){background-color: rgba(0, 0, 0, 0.2);}
 
 .sortable tr:hover {background-color: #ddd;}
 
@@ -249,8 +249,8 @@ table.sortable thead {
 }
 
 /* More Classes */
-.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
-    content: " \25B4\25BE" 
+.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
+    content: " \25B4\25BE"
 }
 
 .table-container {
@@ -286,7 +286,7 @@ table.sortable thead {
   width: device-width;
   font-size: 15vw;
   font-family: 'Tomorrow', sans-serif;
-  
+
 }
 
 .blank_space {
@@ -328,6 +328,38 @@ table.sortable thead {
 .inline-centering {
     margin-top: 30px;
     /* text-align: center; */
+}
+
+.inline-collapsable {
+    margin-top: 30px;
+    display:none;
+}
+
+.benis {
+
+}
+.horizontal-scroll-except-first-column {
+  width: 100%;
+  overflow: auto;
+}
+
+.horizontal-scroll-except-first-column > table {
+  margin-left: 8em;
+}
+
+.horizontal-scroll-except-first-column > table > * > tr > th:first-child,
+.horizontal-scroll-except-first-column > table > * > tr > td:first-child {
+  position: absolute;
+  width: 8em;
+  margin-left: -8em;
+  background: #ccc;
+}
+
+.horizontal-scroll-except-first-column > table > * > tr > th,
+.horizontal-scroll-except-first-column > table > * > tr > td {
+  /* Without this, if a cell wraps onto two lines, the first column
+   * will look bad, and may need padding. */
+  white-space: nowrap;
 }
 
 .thead {
