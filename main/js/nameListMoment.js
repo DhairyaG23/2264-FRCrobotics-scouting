@@ -29,7 +29,7 @@ var u;
 var mainTable = document.getElementById('table');
 
 var avg; //Average value for a given team
-var autoTotal;
+var autoTotal; 
 var tOPTotal
 var autoAvg;
 var tOPAvg
