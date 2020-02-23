@@ -74,9 +74,6 @@ function getKeys() {
 
       getTeamScores(currentTeam, currentEvent, index);
 
-      if(index == teamArray.length-1) {
-          // putItems();
-      }
     }
 
 
@@ -98,10 +95,6 @@ function showInfo() {
 
     for (var i=0; i < size; i++) {
       var bc = size - 1 - i;
-      // console.log(bc);
-      // console.log(size)
-      // console.log(items.length);
-      // console.log("-------");
 
       if (l%2 == 0) {
       items[bc].classList.toggle("inline-collapsable");
@@ -301,7 +294,7 @@ function clear() {
       for (pp = 0; pp < teamArray.length; pp++) {
         console.log("running");
         window["teamTotal" + pp] = 0;
-        window["teamAvg" + pp] = 0;
+        window["avg" + pp] = 0;
         window["autoAvg" + pp] = 0;
         window["autoTotal" + pp] = 0;
         window["autoArray" + pp] = [];
