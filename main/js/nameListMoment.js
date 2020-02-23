@@ -1,3 +1,4 @@
+
 var teamArray; //Array with all the teams in the event
 var teamNumArray; //Array with all the team numbers (DEPRACATED)
 var tKeyArray; //Array with all the team keys

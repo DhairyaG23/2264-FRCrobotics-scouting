@@ -57,6 +57,7 @@ eNameRequest.onreadystatechange = function() {
       }
 }
 }
+
 var strUser;
 // Gets the event the user chose and forwards it to another function
 function sendEvent(){
@@ -71,7 +72,7 @@ function sendEvent(){
 
 
     // $("#table-items tr").remove();
-    $("#table-items tr").remove(); 
+    $("#table-items tr").remove();
     // document.getElementById("table-items").delete();
 
     // Finds the associated Event Key with the Event Num
