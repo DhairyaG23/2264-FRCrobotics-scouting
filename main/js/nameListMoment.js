@@ -10,6 +10,9 @@ var finalArray = [];
 var finalArray2 = [];
 var finalArray3 = [];
 var finalArray4 = [];
+var finalArray5 = [];
+var finalArray6 = [];
+var finalArray7 = [];
 // window["teamTotal" + u]; //The total score of a team at an event, gets reset at the same time as window["teamAvg" + u]
 // window["teamAvg" + u]; //The Avg of a team, gets reset every time a new team is sent to getTeamScores
 
@@ -78,12 +81,7 @@ function getKeys() {
       getTeamScores(currentTeam, currentEvent, index);
 
       if(index == teamArray.length-1) {
-
-
-
-      } else {
-
-        putItems();
+          // putItems();
       }
     }
 
@@ -247,55 +245,6 @@ function getTeamScores (tKey, eKey, u) {
           window["bottomAvg" + u] = (window["bottomVar" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
 
 
-
-          var tr = document.createElement('tr');
-          var teamNames = document.createElement('td');
-          var teamScores = document.createElement('td');
-          var autoScores = document.createElement('td');
-          var tOPScores = document.createElement('td');
-          var outerNums = document.createElement('td');
-          var innerNums = document.createElement('td');
-          var bottomNums = document.createElement('td');
-
-          outerNums.classList.toggle("inline-collapsable");
-          innerNums.classList.toggle("inline-collapsable");
-          bottomNums.classList.toggle("inline-collapsable");
-
-
-          var bigbig = ('getMyTeamInfoVar(\"' + teamNumArray[p] + '\")');
-
-
-          tr.classList.toggle('inline-centering');
-
-          tr.setAttribute("onClick", bigbig);
-
-
-          var table = document.getElementById('table-items');
-
-          table.appendChild(tr);
-          // table.appendChild(empty);
-          tr.appendChild(teamNames);
-          tr.appendChild(teamScores);
-          tr.appendChild(autoScores);
-          tr.appendChild(tOPScores);
-
-          tr.appendChild(bottomNums);
-          tr.appendChild(outerNums);
-          tr.appendChild(innerNums);
-
-          // //console.log("P is" + p);
-          teamNames.innerHTML = teamArray[p] + " - " + teamNumArray[p];
-          teamScores.innerHTML = window["avg" + u];
-          autoScores.innerHTML = window["autoAvg" + u];
-          tOPScores.innerHTML = window["tOPAvg" + u];
-          innerNums.innerHTML = window["innerAvg" + u];
-          outerNums.innerHTML = window["outerAvg" + u];
-          bottomNums.innerHTML =window["bottomAvg" + u];
-
-          // empty.innerHTML = "";
-
-
-
           window["eventScoreArray" + u] = [];
 
           window["autoArray" + u] = [];
@@ -309,8 +258,12 @@ function getTeamScores (tKey, eKey, u) {
                 finalArray.push(window["avg" + v]);
                 finalArray2.push(window["autoAvg" + v]);
                 finalArray3.push(window["tOPAvg" + v]);
+                finalArray4.push(window["innerAvg" + v]);
+                finalArray5.push(window["outerAvg" + v]);
+                finalArray6.push(window["bottomAvg" + v]);
 
             }
+            putItems();
           // }, 1000);
           }
           // getKeys();
@@ -325,8 +278,56 @@ function getTeamScores (tKey, eKey, u) {
 var table;
 var name;
 var score;
-
+var listVar;
 function putItems() {
+      for (listVar = 0; listVar < teamArray.length; listVar++) {
+
+      var tr = document.createElement('tr');
+      var teamNames = document.createElement('td');
+      var teamScores = document.createElement('td');
+      var autoScores = document.createElement('td');
+      var tOPScores = document.createElement('td');
+      var outerNums = document.createElement('td');
+      var innerNums = document.createElement('td');
+      var bottomNums = document.createElement('td');
+
+      outerNums.classList.toggle("inline-collapsable");
+      innerNums.classList.toggle("inline-collapsable");
+      bottomNums.classList.toggle("inline-collapsable");
+
+
+      var bigbig = ('getMyTeamInfoVar(\"' + teamNumArray[listVar] + '\")');
+
+
+      tr.classList.toggle('inline-centering');
+
+      tr.setAttribute("onClick", bigbig);
+
+
+      var table = document.getElementById('table-items');
+
+      table.appendChild(tr);
+      // table.appendChild(empty);
+      tr.appendChild(teamNames);
+      tr.appendChild(teamScores);
+      tr.appendChild(autoScores);
+      tr.appendChild(tOPScores);
+
+      tr.appendChild(bottomNums);
+      tr.appendChild(outerNums);
+      tr.appendChild(innerNums);
+
+      // //console.log("P is" + p);
+      teamNames.innerHTML = teamArray[listVar] + " - " + teamNumArray[listVar];
+      teamScores.innerHTML = finalArray[listVar];
+      autoScores.innerHTML = finalArray2[listVar];
+      tOPScores.innerHTML = finalArray3[listVar];
+      innerNums.innerHTML = finalArray4[listVar];
+      outerNums.innerHTML = finalArray5[listVar];
+      bottomNums.innerHTML = finalArray6[listVar];
+    }
+
+
         $('.loading').fadeOut(600);
         $('.sortable').fadeIn(1000);
         $('.makeEpicAppear').fadeIn(500);
