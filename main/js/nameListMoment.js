@@ -113,11 +113,31 @@ function showInfo() {
 //Get the team scores
 function getTeamScores (tKey, eKey) {
 
+    // loadJSON('https://www.thebluealliance.com/api/v3/team/frc1073/event/2020week0/matches?X-TBA-Auth-Key=lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5', gotData);
+    var fff = "https://www.thebluealliance.com/api/v3/team/"+ tKey + "/event/" + eKey + "/matches?X-TBA-Auth-Key=lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5";
+    let ok = new URL(fff);
+    fetch(ok)
+      .then((response) => {
+        return response.json();
+      })
+      .then((myJson) => {
+        var teamScoreRequestObj = myJson;
+        console.log(myJson);
 
-    var teamScoreRequest = new XMLHttpRequest();
-    teamScoreRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/" + tKey + "/event/" + eKey + "/matches" , true);
-    teamScoreRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-    teamScoreRequest.send();
+
+
+    // function gotData(data) {
+    //   console.log(data);
+    // }
+
+
+
+    // teamScoreRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+
+    // var teamScoreRequest = new XMLHttpRequest();
+    // teamScoreRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/" + tKey + "/event/" + eKey + "/matches" , true);
+    // teamScoreRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+    // teamScoreRequest.send();
     //Reset the Team Totals and Averages
     teamTotal = 0;
     teamAvg = 0;
@@ -139,8 +159,8 @@ function getTeamScores (tKey, eKey) {
     outerVar = 0;
 
 
-    teamScoreRequest.onload = function() {
-        teamScoreRequestObj = JSON.parse(this.responseText);
+    // teamScoreRequest.onload = function() {
+        // teamScoreRequestObj = JSON.parse(this.responseText);
         // //console.log(teamScoreRequestObj);
         teamAlliance = "";
         for(matchNum = 0; matchNum < teamScoreRequestObj.length; matchNum++) {
@@ -264,7 +284,8 @@ function getTeamScores (tKey, eKey) {
           p++;
           getKeys();
 
-    }
+    // }
+      });
 
 }
 
