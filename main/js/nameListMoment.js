@@ -112,17 +112,19 @@ function showInfo() {
 
 //Get the team scores
 function getTeamScores (tKey, eKey) {
-
+    // console.log("before");
     // loadJSON('https://www.thebluealliance.com/api/v3/team/frc1073/event/2020week0/matches?X-TBA-Auth-Key=lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5', gotData);
     var fff = "https://www.thebluealliance.com/api/v3/team/"+ tKey + "/event/" + eKey + "/matches?X-TBA-Auth-Key=lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5";
     let ok = new URL(fff);
+    // console.log("during");
     fetch(ok)
       .then((response) => {
         return response.json();
       })
       .then((myJson) => {
         var teamScoreRequestObj = myJson;
-        console.log(myJson);
+        // console.log(myJson);
+        // console.log("after");
 
 
 
