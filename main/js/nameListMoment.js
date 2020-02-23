@@ -21,22 +21,9 @@ var keyk; //A Variable that cycles from 0-2 to cycle througha and check which te
 var autoScore;
 var TOPScore;
 var blueKeyArray = []; //Array with all the blue team keys
-// window["eventScoreArray" + u] = []; //Array with all scores of each team from ana event
-// var window["avgScoreArray" + u] = []; //Array of averagre scores
-// window["outerArray" + u] = [];
-// window["innerArray" + u] = [];
-// window["bottomArray" + u] = [];
-// window["autoArray" + u] = [];
-// window["tOPArray" + u];
-// var avgwindow["autoArray" + u] = [];
-// var avgwindow["tOPArray" + u] = [];
+
 var bigbig;
-// window["innerVar" + u];
-// window["outerVar" + u];
-// window["bottomVar" + u];
-// window["innerAvg" + u];
-// window["outerAvg" + u];
-// window["bottomAvg" + u];
+
 //Reset stuff
 var i;
 var reps = 0;
@@ -45,10 +32,7 @@ var mainTable = document.getElementById('table');
 var tr2;
 
 var avg; //Average value for a given team
-// window["autoTotal" + u];
-// window["tOPTotal" + u]
-// window["autoAvg" + u];
-// window["tOPAvg" + u]
+
 var table = document.getElementById('table-items');
 var p;
 // var u = 0;
@@ -58,16 +42,25 @@ $(document).ready(function() {
 });
 
 function reset() {
+    reps = 0;
     index = 0;
-    window["eventScoreArray" + u] = [];
-    window["outerArray" + u] = [];
-    window["innerArray" + u] = [];
-    window["bottomArray" + u] = [];
-    window["avgScoreArray" + u] = [];
-    // avgwindow["autoArray" + u] = [];
-    window["autoArray" + u] = [];
-    // avgwindow["tOPArray" + u] = [];
-    window["tOPArray" + u] = [];
+    var finalArray = [];
+    var finalArray2 = [];
+    var finalArray3 = [];
+    var finalArray4 = [];
+    var finalArray5 = [];
+    var finalArray6 = [];
+    var finalArray7 = [];
+
+    // window["eventScoreArray" + u] = [];
+    // window["outerArray" + u] = [];
+    // window["innerArray" + u] = [];
+    // window["bottomArray" + u] = [];
+    // window["avgScoreArray" + u] = [];
+    // // avgwindow["autoArray" + u] = [];
+    // window["autoArray" + u] = [];
+    // // avgwindow["tOPArray" + u] = [];
+    // window["tOPArray" + u] = [];
     p = 0;
     u = 0;
 }
@@ -88,6 +81,7 @@ function getKeys() {
 
 // }
 }
+
 var items;
 var l = 2;
 function showInfo() {
@@ -121,10 +115,10 @@ function showInfo() {
     }
 }
 
+
 //Get the team scores
 function getTeamScores (tKey, eKey, u) {
-    // console.log("before");
-    // loadJSON('https://www.thebluealliance.com/api/v3/team/frc1073/event/2020week0/matches?X-TBA-Auth-Key=lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5', gotData);
+    // console.log("request sent");
     var fff = "https://www.thebluealliance.com/api/v3/team/"+ tKey + "/event/" + eKey + "/matches?X-TBA-Auth-Key=lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5";
     let ok = new URL(fff);
     // console.log("during");
@@ -135,24 +129,6 @@ function getTeamScores (tKey, eKey, u) {
       .then((myJson) => {
         window["teamScoreRequestObj" + u] = myJson;   // create counter1, counter2,...)
 
-        // var teamScoreRequestObj = myJson;
-        // console.log(myJson);
-        // console.log("after");
-
-
-
-    // function gotData(data) {
-    //   console.log(data);
-    // }
-
-
-
-    // teamScoreRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-
-    // var teamScoreRequest = new XMLHttpRequest();
-    // teamScoreRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/" + tKey + "/event/" + eKey + "/matches" , true);
-    // teamScoreRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-    // teamScoreRequest.send();
     //Reset the Team Totals and Averages
     window["teamTotal" + u] = 0;
     window["teamAvg" + u] = 0;
@@ -174,9 +150,7 @@ function getTeamScores (tKey, eKey, u) {
     window["outerVar" + u] = 0;
 
 
-    // teamScoreRequest.onload = function() {
-        // teamScoreRequestObj = JSON.parse(this.responseText);
-        // //console.log(teamScoreRequestObj);
+
         window["teamAlliance" + u] = "";
         for(matchNum = 0; matchNum < window["teamScoreRequestObj" + u].length; matchNum++) {
             blueKeyArray = window["teamScoreRequestObj" + u][matchNum].alliances.blue.team_keys;
@@ -206,48 +180,29 @@ function getTeamScores (tKey, eKey, u) {
             window["teamAlliance" + u] = "";
 
           }
-//6.39
-          // for(var i = 0; i < window["eventScoreArray" + u].length; i++ ){
-          //     window["teamTotal" + u] += parseInt(window["eventScoreArray" + u][i], 10 ); //don't forget to add the base
-          //
-          // }
-          window["avg" + u] = (window["teamTotal" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
-          // finalArray.splice(u-1, 0, window["teamTotal" + u]/window["teamScoreRequestObj" + u].length);
 
-          // for(var u = 0; u < window["autoArray" + u].length; u++ ){
-          //     window["autoTotal" + u] += parseInt(window["autoArray" + u][u], 10 ); //don't forget to add the base
-          // }
+          window["avg" + u] = (window["teamTotal" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+
 
           window["autoAvg" + u] = (window["autoTotal" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
 
-          // for(var u = 0; u < window["tOPArray" + u].length; u++ ){
-          //     window["tOPTotal" + u] += parseInt(window["tOPArray" + u][u], 10 ); //don't forget to add the base
-          // }
 
           window["tOPAvg" + u] = (window["tOPTotal" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
 
-          // for(var u = 0; u < window["innerArray" + u].length; u++ ){
-          //     window["innerVar" + u] += parseInt(window["innerArray" + u][u], 10 ); //don't forget to add the base
-          // }
 
           window["innerAvg" + u] = (window["innerVar" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
 
-          // for(var u = 0; u < window["outerArray" + u].length; u++ ){
-          //     window["outerAvg" + u] += parseInt(window["outerArray" + u][u], 10 ); //don't forget to add the base
-          // }
 
           window["outerAvg" + u] = (window["outerVar" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
 
-          // for(var u = 0; u < window["bottomArray" + u].length; u++ ){
-          //     window["bottomVar" + u] += parseInt(window["bottomArray" + u][u], 10 ); //don't forget to add the base
-          // }
 
           window["bottomAvg" + u] = (window["bottomVar" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
 
 
-          window["eventScoreArray" + u] = [];
-
-          window["autoArray" + u] = [];
+          // window["eventScoreArray" + u] = [];
+          //
+          //
+          // window["autoArray" + u] = [];
           p++;
           reps++;
           if(reps == teamArray.length) {
@@ -331,6 +286,39 @@ function putItems() {
         $('.loading').fadeOut(600);
         $('.sortable').fadeIn(1000);
         $('.makeEpicAppear').fadeIn(500);
+        clear();
+}
+var pp;
+function clear() {
+      finalArray = [];
+      finalArray2 = [];
+      finalArray3 = [];
+      finalArray4 = [];
+      finalArray5 = [];
+      finalArray6 = [];
+      finalArray7 = [];
+      for (pp = 0; pp < teamArray.length; pp++) {
+        console.log("running");
+        window["teamTotal" + pp] = 0;
+        window["teamAvg" + pp] = 0;
+        window["autoAvg" + pp] = 0;
+        window["autoTotal" + pp] = 0;
+        window["autoArray" + pp] = [];
+        window["tOPAvg" + pp] = 0;
+        window["tOPTotal" + pp] = 0;
+        window["tOPArray" + pp] = [];
+        window["eventScoreArray" + pp] = [];
+        window["outerArray" + pp] = [];
+        window["innerArray" + pp] = [];
+        window["bottomArray" + pp] = [];
+        window["bottomAvg" + pp] = 0;
+        window["bottomVar" + pp] = 0;
+        window["innerAvg" + pp] = 0;
+        window["innerVar" + pp] = 0;
+        window["outerAvg" + pp] = 0;
+        window["outerVar" + pp] = 0;
+        reps = 0;
+      }
 }
 
 var urlKey;

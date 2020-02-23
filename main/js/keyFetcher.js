@@ -70,8 +70,9 @@ function sendEvent(){
     strUser = e.options[e.selectedIndex].text;
 
 
-    $("#table-items tr").remove();
-    // document.getElementById("table-items").deleteRow(1);
+    // $("#table-items tr").remove();
+    $("#table-items tr").remove(); 
+    // document.getElementById("table-items").delete();
 
     // Finds the associated Event Key with the Event Num
     var currentEventNum = eNameArray.indexOf(strUser);
