@@ -53,15 +53,6 @@ function reset() {
     var finalArray6 = [];
     var finalArray7 = [];
 
-    // window["eventScoreArray" + u] = [];
-    // window["outerArray" + u] = [];
-    // window["innerArray" + u] = [];
-    // window["bottomArray" + u] = [];
-    // window["avgScoreArray" + u] = [];
-    // // avgwindow["autoArray" + u] = [];
-    // window["autoArray" + u] = [];
-    // // avgwindow["tOPArray" + u] = [];
-    // window["tOPArray" + u] = [];
     p = 0;
     u = 0;
 }
@@ -274,6 +265,7 @@ function putItems() {
       innerNums.innerHTML = finalArray4[listVar];
       outerNums.innerHTML = finalArray5[listVar];
       bottomNums.innerHTML = finalArray6[listVar];
+      // console.log("making stuff appear");
     }
 
 
@@ -292,7 +284,7 @@ function clear() {
       finalArray6 = [];
       finalArray7 = [];
       for (pp = 0; pp < teamArray.length; pp++) {
-        console.log("running");
+        // console.log("running");
         window["teamTotal" + pp] = 0;
         window["avg" + pp] = 0;
         window["autoAvg" + pp] = 0;
