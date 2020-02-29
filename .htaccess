@@ -1,1 +1,2 @@
-.DS_Store
+DirectoryIndex welcome.html
+ErrorDocument 404 /404.html
