@@ -61,13 +61,14 @@
 
             </div>
             <hr>
-            <div class="teamNumFormDiv"><form class="teamNumForm"onsubmit="return false;">
-              <label class="numLabel" for="myTeamInput">Your Team Number:</label>
-              <input type="number" id="myTeamNumber" class="myTeamInput" placeholder="(e.g. 2264)">
+            <div class="teamNumFormDiv">
+              <form class="teamNumForm" onsubmit="return false;">
+                <label class="numLabel" for="myTeamInput">Your Team Number:</label>
+                <input type="number" id="myTeamNumber" class="myTeamInput" placeholder="(e.g. 2264)">
                 <button type="submit" onclick="createCookie(document.getElementById('myTeamNumber').value)" class='myTeamSubmit'>Submit</button>
-
-                    <br>
-            </form>
+              </input>
+                      <br>
+                </form>
 
             </div>
             <div class="showNum">
@@ -99,9 +100,10 @@
                   <tr class="theader">
 
                     <th class = "inline-centering"> Team Name </th>
-                    <th class="sorttable_numeric"> AVG  </th>
+                    <!-- <th class="sorttable_numeric"> AVG  </th> -->
                     <th class="sorttable_numeric"> Auto </th>
                     <th class="sorttable_numeric"> teleOP </th>
+                    <th class="sorttable_numeric"> Win Rate </th>
                     <th class="sorttable_numeric, inline-collapsable"> # of Balls (Bottom) </th>
                     <th class="sorttable_numeric, inline-collapsable"> # of Balls (Outer) </th>
                     <th class="sorttable_numeric, inline-collapsable"> # of Balls (Inner) </th>
