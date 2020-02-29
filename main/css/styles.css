@@ -6,19 +6,9 @@
 @import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
-
-
-/*
-:root {
-    color-scheme: light dark;
-}
-*/
 
 html {
     height: 100%;
-    color-scheme: light dark;
 }
 
 hr {
@@ -32,18 +22,14 @@ body {
   margin: 0;
 
   /* Background Gradient */
-/*
   background-repeat: no-repeat;
   background: rgb(23,174,204);
 background: linear-gradient(180deg, rgba(23,174,204,1) 0%, rgba(196,204,21,1) 50%, rgba(23,174,204,1) 100%);
   background-size: 400% 400%;
-*/
   /* Animation */
-/*
   -webkit-animation: AnimationName 10s ease infinite;
   -moz-animation: AnimationName 10s ease infinite;
   animation: AnimationName 10s ease infinite;
-*/
 }
 
 .github-img {
@@ -160,7 +146,7 @@ tr {
 */
 
 .numHeading {
-    font-family: 'Roboto';
+    font-family: 'Abel', sans-serif;
     font-size: 3vh;
 }
 
@@ -191,7 +177,7 @@ option {
 }
 
 img {
-  height: 17vh;
+  height: 10vh;
   float: center;
 }
 
@@ -302,7 +288,7 @@ table.sortable thead {
 }
 
 .websiteButton {
-  margin-top: 5vw;
+  margin-top: 10vw;
   background-color: white;  /*Green */
   border: none;
   color: black;
@@ -445,40 +431,4 @@ table.sortable thead {
     0%{background-position:0% 0%}
     50%{background-position:100% 100%}
     100%{background-position:0% 0%}
-}
-
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-    }
-    td {
-        color: white;
-    }
-    h3, label {
-        color:white;
-    }
-    .massive {
-        color:white;
-    }
-    .sortable tr:hover {background-color: darkgrey;}
-
-    .sortable th:hover {background-color: darkgray;}
-  
-    .nameHeading {
-        color: white;
-    }
-    .yearsParticipated {
-        color: white;
-    }
-    .location {
-        color: white;
-    }
-    .teamCountry {
-        color: #6e6e6e;
-    }
-    .numHeading {
-        color: white;
-        font-family: 'Roboto';
-    }
 }
