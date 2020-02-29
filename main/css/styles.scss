@@ -450,4 +450,10 @@ table.sortable thead {
     body {
         background-color: rgb(59, 59, 59);
     }
+    td {
+        color: white;
+    }
+    .sortable tr:hover {background-color: darkgrey;}
+
+    .sortable th:hover {background-color: darkgray;}
 }
