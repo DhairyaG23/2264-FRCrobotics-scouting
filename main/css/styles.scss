@@ -448,10 +448,16 @@ table.sortable thead {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: rgb(59, 59, 59);
+        background-color: #121212;
     }
     td {
         color: white;
+    }
+    h3, label {
+        color:white;
+    }
+    .massive {
+        color:white;
     }
     .sortable tr:hover {background-color: darkgrey;}
 
