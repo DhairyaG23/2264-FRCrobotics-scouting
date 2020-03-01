@@ -78,7 +78,7 @@ h5 {
   text-decoration: none;
   display: inline-block;
   font-size: 2vh;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto';
 }
 
 tr {
@@ -290,7 +290,7 @@ button span {
 
 button span:after {
   content: '\00bb';
-  background-color:3641ff;
+    background-color: #884bab;
   position: absolute;
   opacity: 0;
   right: -20px;
@@ -300,12 +300,14 @@ button span:after {
 
 button:hover span {
   padding-right: 25px;
+  color: white;
   /* background-color: #3e8e41 */
   /* margin-right: 25px; */
 }
 
 button:hover {
-  background-color: #3641ff;
+  background-color: #884bab;
+    color: white;
 }
 
 button:hover span:after {
@@ -515,9 +517,11 @@ button:hover span:after {
     .numHeading {
         color: white;
     }
+/*
     a:visited {
         color: #8248a3;
     }
+*/
     .submit-form:hover {
     background-color: #884bab;
     color: white;
@@ -527,7 +531,7 @@ button:hover span:after {
 }
 
     a {
-        color:#3641ff;
+        color: #884bab;
     }
     
     .select2-selection select2-selection--single{
