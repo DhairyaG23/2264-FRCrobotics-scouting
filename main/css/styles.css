@@ -8,8 +8,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-
-
 /*
 :root {
     color-scheme: light dark;
@@ -31,19 +29,6 @@ body {
   width: device-width;
   margin: 0;
 
-  /* Background Gradient */
-/*
-  background-repeat: no-repeat;
-  background: rgb(23,174,204);
-background: linear-gradient(180deg, rgba(23,174,204,1) 0%, rgba(196,204,21,1) 50%, rgba(23,174,204,1) 100%);
-  background-size: 400% 400%;
-*/
-  /* Animation */
-/*
-  -webkit-animation: AnimationName 10s ease infinite;
-  -moz-animation: AnimationName 10s ease infinite;
-  animation: AnimationName 10s ease infinite;
-*/
 }
 
 .github-img {
@@ -92,22 +77,21 @@ h5 {
   display: inline-block;
   font-size: 2vh;
   font-family: 'Roboto';
-
 }
-
 .myTeamButton {
-      background-color: white;  /*Green */
+  background-color: white;  /*Green */
   border: none;
   color: black;
-  padding-top: 0.5vh;
+   padding-top: 0.5vh;
   padding-bottom: 0.5vh;
   padding-right: 1.5vw;
   padding-left: 1.5vw;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 2vh;
-  font-family: 'Roboto Mono', monospace;
+  font-size: 2vw;
+  font-family: 'Roboto';
+  border: 2px solid darkgray;
 }
 
 tr {
@@ -119,7 +103,7 @@ tr {
 }
 
 .numLabel {
-  font-family: 'Abel', sans-serif;
+  font-family: 'Roboto';
   font-size: 3vh;
 }
 
@@ -136,6 +120,8 @@ tr {
   display: inline-block;
   font-size: 2vh;
   font-family: 'Roboto';
+  transition-duration: 0.4s;
+  border: 2px solid darkgray;
 }
 
 
@@ -152,7 +138,8 @@ tr {
   text-decoration: none;
   display: inline-block;
   font-size: 2vh;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto';
+  border: 2px solid darkgray;
 }
 
 /*
@@ -163,7 +150,7 @@ tr {
 
 .numHeading {
     font-family: 'Roboto';
-    font-size: 3vh;
+    font-size: 3vw;
 }
 
 .logoPic {
@@ -175,6 +162,7 @@ tr {
 form {
   margin-top: 20px;
   margin-bottom: 20px;
+
 }
 
 .myTeamInput {
@@ -262,7 +250,7 @@ table.sortable thead {
   margin-bottom: 4vh;
 }
 
-.sortable tr:nth-child(odd){background-color: rgba(0, 0, 0, 0.2);}
+.sortable tr:nth-child(odd){background-color: rgba(255, 255, 255, 0.05);}
 
 .sortable tr:hover {background-color: #ddd;}
 
@@ -301,6 +289,54 @@ table.sortable thead {
 .massive {
   font-size: 20vw;
   font-family: 'Tomorrow', sans-serif;
+}
+
+button {
+  transition: all 0.4s;
+  cursor: pointer;
+
+  background-color: white;  /*Green */
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vw;
+  font-family: 'Roboto Mono', monospace;
+}
+
+button span {
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+}
+
+button span:after {
+  content: '\00bb';
+  /* background-color: black; */
+  position: absolute;
+  opacity: 0;
+  right: -20px;
+  transition: 0.4s;
+
+}
+
+button:hover span {
+  padding-right: 25px;
+  color: white;
+  /* background-color: #3e8e41 */
+  /* margin-right: 25px; */
+}
+
+button:hover {
+  background-color: black;
+    color: white;
+}
+
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+  /* background-color: #3e8e41 */
 }
 
 .websiteButton {
@@ -449,16 +485,50 @@ table.sortable thead {
     100%{background-position:0% 0%}
 }
 
+@keyframes buttonHover {
+    0%{background-color: white}
+    100%{background-color: #8248a3}
+}
+
+.myTeamSubmit {
+  background-color: white;  /*Green */
+  border: none;
+  color: black;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  padding-right: 1.5vw;
+  padding-left: 1.5vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vh;
+  font-family: 'Roboto';
+  border: 2px solid darkgray;
+  transition-duration: 0.4s;
+}
+
+.myTeamSubmit:hover {
+    background-color: black;
+    color: white;
+}
+
+.submit-form:hover {
+    background-color: black;
+    color: white;
+}
+
 
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #121212;
+        /* background-color: #2e2e2e; */
+        /* background-color: #171717; */
     }
     td {
         color: white;
     }
-    h3, label {
-        color: white;
+    h3, label, h4 {
+        color:white;
     }
     .massive {
         color: white;
@@ -466,7 +536,44 @@ table.sortable thead {
     .sortable tr:hover {background-color: darkgray;}
 
     .sortable th:hover {background-color: darkgray;}
-  
+
+    .numHeading {
+        color: white;
+    }
+/*
+    a:visited {
+        color: #8248a3;
+    }
+*/
+    .submit-form:hover {
+    background-color: #884bab;
+    color: white;
+}
+    .myTeamSubmit:hover {
+    background-color: #884bab;
+}
+
+    a {
+        color: #884bab;
+    }
+
+    .select2-selection select2-selection--single{
+        color: white;
+        background-color: black;
+    }
+    .select2-selection__rendered {
+        background-color: black;
+        color: white;
+    }
+    .select2-results {
+        background-color: black;
+        color: white;
+    }
+    /* button:hover {
+        background-color:#3641ff;
+        color:white;
+    } */
+
     .nameHeading {
         color: white;
     }
@@ -474,14 +581,10 @@ table.sortable thead {
         color: white;
     }
     .location {
-        color: white;
+        color: #7d7d7d;
     }
-    .teamCountry {
-        color: #6e6e6e;
-    }
-    .numHeading {
+    h1 {
         color: white;
-        font-family: 'Roboto';
     }
     span {
         background-color: black;
@@ -506,6 +609,14 @@ table.sortable thead {
         100%{background-color: #8a50b3;}
     }
     
+    button span:after {
+    /* background-color: #884bab; */
+}
+    button:hover {
+        background-color: #884bab;
+        color: white;
+}
+
 }
 
 
