@@ -586,9 +586,9 @@ button:hover span:after {
     h1 {
         color: white;
     }
-    span {
+    /* span {
         background-color: black;
-    }
+    } */
     form {
         border: white;
     }
@@ -596,7 +596,7 @@ button:hover span:after {
         background-color: white;
     }
     .submit-form {
-        border-width: 10px;
+        border-width: 2px;
         border-color: white;
     }
     .submit-form:hover {
