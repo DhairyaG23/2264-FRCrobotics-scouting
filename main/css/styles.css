@@ -299,20 +299,30 @@ button span {
 
 button span:after {
   content: '\00bb';
+  background-color:3641ff;
   position: absolute;
   opacity: 0;
   right: -20px;
   transition: 0.5s;
+
 }
 
 button:hover span {
   padding-right: 25px;
+  /* background-color: #3e8e41 */
+  /* margin-right: 25px; */
+}
+
+button:hover {
+  background-color: #3641ff;
 }
 
 button:hover span:after {
   opacity: 1;
   right: 0;
+  /* background-color: #3e8e41 */
 }
+
 .websiteButton {
   margin-top: 5vw;
   background-color: white;  /*Green */
