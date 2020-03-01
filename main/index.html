@@ -41,7 +41,7 @@
         <noscript><a href="https://www.PrivacyPolicies.com/cookie-consent/">Cookie Consent by Privacy Policies Generator</a></noscript>
         <!-- End Cookie Consent -->
 
-        
+
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-title" content="FRC Scouting">
     </head>
@@ -49,12 +49,14 @@
     <body>
         <div class="header">
           <!-- Logo -->
+
         <div class="center-header, logo"><a href="index.html" class="logo"><picture>
  <source srcset="logo2.png"
 media="(prefers-color-scheme: dark)">
  <img src="logo.png" class="logoPic">
 </picture></a></div>
         </div>
+
         <div class="inline-centering">
 
             <div class = "blank_space">
@@ -75,8 +77,8 @@ media="(prefers-color-scheme: dark)">
             </div>
             <div class="showNum">
                    <h4 class="numHeading" id="numHeading"></h4>
-                   <button  id = "myTeamButton" type= "button" class="myTeamButton"> <a class = "normal" href="my-team.html"> My Team Info</a></button>
-              
+                   <button  id = "myTeamButton" type= "button" class="myTeamButton"> <a class = "normal" href="my-team.html"><span> My Team Info</span></a></button>
+
                </div>
               <hr>
               <!-- Form and Button -->
@@ -85,16 +87,18 @@ media="(prefers-color-scheme: dark)">
                   <option class="original-option">Choose an Event:</option>
                 </select>
               </form>
-              <button  class="submit-form" type="submit" onclick="sendEvent()">Submit</button>
+              <button  class="submit-form" type="submit" onclick="sendEvent()"><span>Submit</span></button>
               <button onClick="showInfo()" class='makeEpicAppear' id='makeEpicAppear'> Show More Info </button>
 
 
             <h3 class="event-name" id="event-name"></h3>
               <!-- List -->
           <br>
-          <div width=device-width class="inline-centering"><img class="loading" src="loading.gif"></div>
-
-        </div>
+          <div width=device-width class="inline-centering"><picture>
+ <source srcset="loading2.gif"
+media="(prefers-color-scheme: dark)">
+ <img src="loading.gif" class="loading">
+</picture></div>
         <div class="horizontal-scroll-except-first-column" id="myItemTable" class= "table-container">
             <center>
                 <table  class="sortable" id="table">
@@ -102,9 +106,10 @@ media="(prefers-color-scheme: dark)">
                   <tr class="theader">
 
                     <th class = "inline-centering"> Team Name </th>
-                    <th class="sorttable_numeric"> AVG  </th>
+
                     <th class="sorttable_numeric"> Auto </th>
                     <th class="sorttable_numeric"> teleOP </th>
+                    <th class="sorttable_numeric"> Win Rate  </th>
                     <th class="sorttable_numeric, inline-collapsable"> # of Balls (Bottom) </th>
                     <th class="sorttable_numeric, inline-collapsable"> # of Balls (Outer) </th>
                     <th class="sorttable_numeric, inline-collapsable"> # of Balls (Inner) </th>
