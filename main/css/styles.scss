@@ -91,7 +91,7 @@ h5 {
   text-decoration: none;
   display: inline-block;
   font-size: 2vh;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto';
 
 }
 
@@ -135,8 +135,10 @@ tr {
   text-decoration: none;
   display: inline-block;
   font-size: 2vh;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto';
 }
+
+
 
 .makeEpicAppear {
       background-color: white;  /*Green */
@@ -456,12 +458,12 @@ table.sortable thead {
         color: white;
     }
     h3, label {
-        color:white;
+        color: white;
     }
     .massive {
-        color:white;
+        color: white;
     }
-    .sortable tr:hover {background-color: darkgrey;}
+    .sortable tr:hover {background-color: darkgray;}
 
     .sortable th:hover {background-color: darkgray;}
   
@@ -481,4 +483,29 @@ table.sortable thead {
         color: white;
         font-family: 'Roboto';
     }
+    span {
+        background-color: black;
+    }
+    form {
+        border: white;
+    }
+    .select2-selection__rendered {
+        background-color: white;
+    }
+    .submit-form {
+        border-width: 10px;
+        border-color: white;
+    }
+    .submit-form:hover {
+        animation: buttonHover 0.5s ease;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes buttonHover {
+        0%{background-color: white; }
+        100%{background-color: #8a50b3;}
+    }
+    
 }
+
+
