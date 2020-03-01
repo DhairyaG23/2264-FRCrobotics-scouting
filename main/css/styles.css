@@ -250,7 +250,7 @@ table.sortable thead {
   margin-bottom: 4vh;
 }
 
-.sortable tr:nth-child(odd){background-color: rgba(255, 255, 255, 0.05);}
+.sortable tr:nth-child(odd){background-color: rgba(0, 0, 0, 0.2);}
 
 .sortable tr:hover {background-color: #ddd;}
 
@@ -616,6 +616,13 @@ button:hover span:after {
         background-color: #884bab;
         color: white;
 }
+
+.sortable tr:nth-child(odd){background-color: rgba(255, 255, 255, 0.1);}
+
+.sortable tr:hover {background-color: rgb(100, 100, 100);}
+
+.sortable th:hover {background-color: rgb(177, 177, 177);}
+
 
 }
 
