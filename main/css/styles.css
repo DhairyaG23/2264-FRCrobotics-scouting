@@ -279,23 +279,23 @@ table.sortable thead {
 }
 
 button {
-  transition: all 0.5s;
+  transition: all 0.4s;
   cursor: pointer;
 }
 
 button span {
   display: inline-block;
   position: relative;
-  transition: 0.5s;
+  transition: 0.4s;
 }
 
 button span:after {
   content: '\00bb';
-    background-color: #884bab;
+    background-color: black;
   position: absolute;
   opacity: 0;
   right: -20px;
-  transition: 0.5s;
+  transition: 0.4s;
 
 }
 
@@ -307,7 +307,7 @@ button:hover span {
 }
 
 button:hover {
-  background-color: #884bab;
+  background-color: black;
     color: white;
 }
 
@@ -564,6 +564,12 @@ button:hover span:after {
     h1 {
         color: white;
     }
-
+    button span:after {
+    background-color: #884bab;
+}
+    button:hover {
+        background-color: #884bab;
+        color: white;
+}
 
 }
