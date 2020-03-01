@@ -79,6 +79,7 @@ h5 {
   display: inline-block;
   font-size: 1.5vw;
   font-family: 'Roboto';
+  border: 2px solid darkgray;
 }
 
 tr {
