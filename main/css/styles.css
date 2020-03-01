@@ -529,6 +529,19 @@ button:hover span:after {
     a {
         color:#3641ff;
     }
+    
+    .select2-selection select2-selection--single{
+        color: white;
+        background-color: black;
+    }
+    .select2-selection__rendered {
+        background-color: black;
+        color: white;
+    }
+    .select2-results {
+        background-color: black;
+        color: white;
+    }
     /* button:hover {
         background-color:#3641ff;
         color:white;
