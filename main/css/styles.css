@@ -547,7 +547,18 @@ button:hover span:after {
         color:white;
     } */
 
-
+    .nameHeading {
+        color: white;
+    }
+    .yearsParticipated {
+        color: white;
+    }
+    .location {
+        color: #7d7d7d;
+    }
+    h1 {
+        color: white;
+    }
 
 
 }
