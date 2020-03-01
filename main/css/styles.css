@@ -7,6 +7,7 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
 
+<<<<<<< HEAD
 
 /*
 :root {
@@ -17,6 +18,10 @@
 html {
     height: 100%;
     color-scheme: light dark;
+=======
+html {
+    height: 100%;
+>>>>>>> parent of 77e6a97... updated css and apache code
 }
 
 hr {
@@ -30,11 +35,15 @@ body {
   margin: 0;
 
   /* Background Gradient */
+<<<<<<< HEAD
 /*
+=======
+>>>>>>> parent of 77e6a97... updated css and apache code
   background-repeat: no-repeat;
   background: rgb(23,174,204);
 background: linear-gradient(180deg, rgba(23,174,204,1) 0%, rgba(196,204,21,1) 50%, rgba(23,174,204,1) 100%);
   background-size: 400% 400%;
+<<<<<<< HEAD
 */
   /* Animation */
 /*
@@ -42,6 +51,12 @@ background: linear-gradient(180deg, rgba(23,174,204,1) 0%, rgba(196,204,21,1) 50
   -moz-animation: AnimationName 10s ease infinite;
   animation: AnimationName 10s ease infinite;
 */
+=======
+  /* Animation */
+  -webkit-animation: AnimationName 10s ease infinite;
+  -moz-animation: AnimationName 10s ease infinite;
+  animation: AnimationName 10s ease infinite;
+>>>>>>> parent of 77e6a97... updated css and apache code
 }
 
 .github-img {
@@ -189,7 +204,11 @@ option {
 }
 
 img {
+<<<<<<< HEAD
   height: 17vh;
+=======
+  height: 10vh;
+>>>>>>> parent of 77e6a97... updated css and apache code
   float: center;
 }
 
@@ -300,7 +319,11 @@ table.sortable thead {
 }
 
 .websiteButton {
+<<<<<<< HEAD
   margin-top: 5vw;
+=======
+  margin-top: 10vw;
+>>>>>>> parent of 77e6a97... updated css and apache code
   background-color: white;  /*Green */
   border: none;
   color: black;
@@ -444,6 +467,7 @@ table.sortable thead {
     50%{background-position:100% 100%}
     100%{background-position:0% 0%}
 }
+<<<<<<< HEAD
 
 
 @media (prefers-color-scheme: dark) {
@@ -465,3 +489,5 @@ table.sortable thead {
   
     
 }
+=======
+>>>>>>> parent of 77e6a97... updated css and apache code

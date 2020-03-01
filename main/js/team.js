@@ -1,4 +1,3 @@
-
 var b;
 var teamERequestObj = [];
 var teamERequest;
