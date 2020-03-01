@@ -81,7 +81,7 @@ h5 {
 }
 
 .myTeamButton {
-      background-color: white;  /*Green */
+  background-color: white;  /*Green */
   border: none;
   color: black;
   padding-top: 0.5vh;
@@ -286,6 +286,33 @@ table.sortable thead {
   font-family: 'Tomorrow', sans-serif;
 }
 
+button {
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+button span {
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+button:hover span {
+  padding-right: 25px;
+}
+
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 .websiteButton {
   margin-top: 5vw;
   background-color: white;  /*Green */
@@ -433,11 +460,12 @@ table.sortable thead {
 }
 
 
+
 @media (prefers-color-scheme: dark) {
     body {
-        /* background-color: #121212; */
+        background-color: #121212;
         /* background-color: #2e2e2e; */
-        background-color: #171717;
+        /* background-color: #171717; */
     }
     td {
         color: white;
@@ -454,6 +482,11 @@ table.sortable thead {
     a {
         color:#3641ff;
     }
+    /* button:hover {
+        background-color:#3641ff;
+        color:white;
+    } */
+
 
 
 }
