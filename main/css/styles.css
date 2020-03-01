@@ -436,6 +436,7 @@ table.sortable thead {
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #121212;
+        /* background-color: #2e2e2e; */
     }
     td {
         color: white;
