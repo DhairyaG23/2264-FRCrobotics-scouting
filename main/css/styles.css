@@ -29,19 +29,6 @@ body {
   width: device-width;
   margin: 0;
 
-  /* Background Gradient */
-/*
-  background-repeat: no-repeat;
-  background: rgb(23,174,204);
-background: linear-gradient(180deg, rgba(23,174,204,1) 0%, rgba(196,204,21,1) 50%, rgba(23,174,204,1) 100%);
-  background-size: 400% 400%;
-*/
-  /* Animation */
-/*
-  -webkit-animation: AnimationName 10s ease infinite;
-  -moz-animation: AnimationName 10s ease infinite;
-  animation: AnimationName 10s ease infinite;
-*/
 }
 
 .github-img {
@@ -453,7 +440,7 @@ table.sortable thead {
     td {
         color: white;
     }
-    h3, label {
+    h3, label, h4 {
         color:white;
     }
     .massive {
@@ -462,6 +449,6 @@ table.sortable thead {
     .sortable tr:hover {background-color: darkgrey;}
 
     .sortable th:hover {background-color: darkgray;}
-  
-    
+
+
 }
