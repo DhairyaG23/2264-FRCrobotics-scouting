@@ -435,8 +435,9 @@ table.sortable thead {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #121212;
+        /* background-color: #121212; */
         /* background-color: #2e2e2e; */
+        background-color: #171717;
     }
     td {
         color: white;
@@ -450,6 +451,9 @@ table.sortable thead {
     .sortable tr:hover {background-color: darkgrey;}
 
     .sortable th:hover {background-color: darkgray;}
+    a {
+        color:#3641ff;
+    }
 
 
 }
