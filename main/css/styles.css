@@ -281,6 +281,15 @@ table.sortable thead {
 button {
   transition: all 0.4s;
   cursor: pointer;
+
+  background-color: white;  /*Green */
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vw;
+  font-family: 'Roboto Mono', monospace;
 }
 
 button span {
@@ -291,7 +300,7 @@ button span {
 
 button span:after {
   content: '\00bb';
-    background-color: black;
+  /* background-color: black; */
   position: absolute;
   opacity: 0;
   right: -20px;
@@ -565,7 +574,7 @@ button:hover span:after {
         color: white;
     }
     button span:after {
-    background-color: #884bab;
+    /* background-color: #884bab; */
 }
     button:hover {
         background-color: #884bab;
