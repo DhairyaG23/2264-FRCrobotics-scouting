@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 /*
 :root {
@@ -77,21 +77,7 @@ h5 {
     color: gray;
 }
 
-.myTeamSubmit {
-  background-color: white;  /*Green */
-  border: none;
-  color: black;
-  padding-top: 0.5vh;
-  padding-bottom: 0.5vh;
-  padding-right: 1.5vw;
-  padding-left: 1.5vw;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 2vh;
-  font-family: 'Roboto Mono', monospace;
 
-}
 
 .myTeamButton {
       background-color: white;  /*Green */
@@ -117,7 +103,7 @@ tr {
 }
 
 .numLabel {
-  font-family: 'Abel', sans-serif;
+  font-family: 'Roboto';
   font-size: 3vh;
 }
 
@@ -133,8 +119,12 @@ tr {
   text-decoration: none;
   display: inline-block;
   font-size: 2vh;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto';
+  transition-duration: 0.4s;
+  border: 2px solid darkgray;
 }
+
+
 
 .makeEpicAppear {
       background-color: white;  /*Green */
@@ -158,8 +148,8 @@ tr {
 */
 
 .numHeading {
-    font-family: 'Abel', sans-serif;
-    font-size: 3vh;
+    font-family: 'Roboto';
+    font-size: 3.75vw;
 }
 
 .logoPic {
@@ -171,6 +161,7 @@ tr {
 form {
   margin-top: 20px;
   margin-bottom: 20px;
+
 }
 
 .myTeamInput {
@@ -445,6 +436,37 @@ table.sortable thead {
     100%{background-position:0% 0%}
 }
 
+@keyframes buttonHover {
+    0%{background-color: white}
+    100%{background-color: #8248a3}
+}
+
+.myTeamSubmit {
+  background-color: white;  /*Green */
+  border: none;
+  color: black;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  padding-right: 1.5vw;
+  padding-left: 1.5vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vh;
+  font-family: 'Roboto';
+  border: 2px solid darkgray;
+  transition-duration: 0.4s;
+}
+
+.myTeamSubmit:hover {
+    background-color: black;
+    color: white;
+}
+
+.submit-form:hover {
+    background-color: black;
+    color: white;
+}
 
 @media (prefers-color-scheme: dark) {
     body {
@@ -462,6 +484,17 @@ table.sortable thead {
     .sortable tr:hover {background-color: darkgrey;}
 
     .sortable th:hover {background-color: darkgray;}
-  
-    
+    .numHeading {
+        color: white;
+    }
+    a:visited {
+        color: #8248a3;
+    }
+    .submit-form:hover {
+    background-color: #884bab;
+    color: white;
+}
+    .myTeamSubmit:hover {
+    background-color: #884bab;
+}
 }
