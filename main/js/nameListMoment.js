@@ -398,7 +398,25 @@ function makeList(x){
       }
     }
 
-}
+  var eventInfoRequest = new XMLHttpRequest();
+  eventInfoRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x);
+  eventInfoRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+  eventInfoRequest.send();
+    eventInfoRequest.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200){
+
+          var eventInfoObj = JSON.parse(this.responseText);
+          console.log(eventInfoObj.start_date);
+          let now = new Date(eventInfoObj.start_date);
+          console.log(now); 
+          console.log(now.getMonth())
+        }
+
+      }
+    }
+    
+    
+
 
 function waitTillRun(){
   setTimeout(function(){
