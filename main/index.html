@@ -62,7 +62,13 @@
 
     <body>
         <background>
-        <img src ="giphy.gif" class="loadingAnime">
+          <video width="320" height="240" id="vid" class="loadingAnime" loop muted>
+
+            <source src ="giphy.mp4"  type="video/mp4">
+        </video>
+        <script>
+              document.getElementById('vid').play();
+        </script>
       </background>
         <!-- <img src="logo2.png" class="loadingLogo" id="loadingLogo"> -->
 
@@ -114,6 +120,7 @@ media="(prefers-color-scheme: dark)">
             <h3 class="event-name" id="event-name"></h3>
               <!-- List -->
           <br>
+          <div class="sometimes">
           <div width=device-width class="inline-centering"><picture>
  <source srcset="loading2.gif"
 media="(prefers-color-scheme: dark)">
@@ -145,6 +152,7 @@ media="(prefers-color-scheme: dark)">
 
           </table>
           </center>
+        </div>
         </div>
       </div>
     </div>
