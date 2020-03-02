@@ -160,14 +160,16 @@ tr {
 
 .loadingAnime {
 
-  background-repeat: no-repeat;
-  background-size: cover;
-  height:100%;
+  /* position: absolute; */
+  top: 0;
+  left: 0;
   width: 100%;
-
-  /* overflow-y:hidden;
-  overflow-x: hidden; */
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
 }
+
+
 
 
 
@@ -494,6 +496,7 @@ button:hover span:after {
   display: block;
   margin:0 auto;
   margin-bottom: 3vw;
+  /* visibility: hidden; */
 
 }
 .center-header {

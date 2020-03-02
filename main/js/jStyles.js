@@ -3,6 +3,7 @@ var url = new URL(document.location);
 var listID = url.searchParams.get('listID');
 // EVERYTHING TO DO WITH STYLING HTML ELEMENTS USING JS
 window.onload = doStuff;
+
 $(document).ready(function() {
     $('.loadingLogo').hide();
     $('.everything').hide();
