@@ -52,7 +52,7 @@ body {
 }
 
 img:hover{
-    filter: brightness(60%);
+    /* filter: brightness(60%); */
     background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -158,6 +158,39 @@ tr {
     height: auto;
 }
 
+.loadingAnime {
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:100%;
+  width: 100%;
+
+  /* overflow-y:hidden;
+  overflow-x: hidden; */
+}
+
+
+
+
+.loadingLogo {
+  /* visibility: hidden; */
+  /* width: 10vw;
+  height: auto; */
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  margin-left: -4.7vw;
+}
+
+body, html {
+    height: 100%;
+}
+
+.everything {
+    /* visibility: hidden; */
+    /* height:0; */
+    /* display: none; */
+}
 /* Everything Forms */
 form {
   margin-top: 20px;
@@ -182,7 +215,7 @@ option {
 
 img {
   height: 17vh;
-  float: center;
+  /* float: center; */
 }
 
 /* CLASSES */
@@ -603,12 +636,12 @@ button:hover span:after {
         animation: buttonHover 0.5s ease;
         animation-fill-mode: forwards;
     }
-    
+
     @keyframes buttonHover {
         0%{background-color: white; }
         100%{background-color: #8a50b3;}
     }
-    
+
     button span:after {
     /* background-color: #884bab; */
 }
@@ -625,5 +658,3 @@ button:hover span:after {
 
 
 }
-
-

@@ -14,6 +14,9 @@
         <link rel="apple-touch-startup-image" href="apple-touch-icon.png">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <script src="js/sorttable.js"></script>
+        <script type="application/javascript">
+          (function(b,o,n,g,s,r,c){if(b[s])return;b[s]={};b[s].scriptToken="XzIxMTEyNDI4Ng";b[s].callsQueue=[];b[s].api=function(){b[s].callsQueue.push(arguments);};r=o.createElement(n);c=o.getElementsByTagName(n)[0];r.async=1;r.src=g;r.id=s+n;c.parentNode.insertBefore(r,c);})(window,document,"script","https://cdn.oribi.io/XzIxMTEyNDI4Ng/oribi.js","ORIBI");
+        </script>
         <script src='https://code.jquery.com/jquery-3.3.1.js'></script>
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
         <script src="js/nameListMoment.js"></script>
@@ -47,15 +50,21 @@
     </head>
 
     <body>
+        <background>
+        <img src ="giphy.gif" class="loadingAnime">
+      </background>
+        <!-- <img src="logo2.png" class="loadingLogo" id="loadingLogo"> -->
+
         <div class="header">
           <!-- Logo -->
 
-        <div class="center-header, logo"><a href="index.html" class="logo"><picture>
+        <div class="center-header, logo, loadingLogo"><a href="index.html" class="logo"><picture>
  <source srcset="logo2.png"
 media="(prefers-color-scheme: dark)">
  <img src="logo.png" class="logoPic">
 </picture></a></div>
         </div>
+        <div class = "everything" id="everything">
 
         <div class="inline-centering">
 
@@ -126,6 +135,9 @@ media="(prefers-color-scheme: dark)">
           </table>
           </center>
         </div>
+      </div>
+    </div>
+
     </body>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 
