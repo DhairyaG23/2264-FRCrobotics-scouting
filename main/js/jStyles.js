@@ -2,7 +2,27 @@
 var url = new URL(document.location);
 var listID = url.searchParams.get('listID');
 // EVERYTHING TO DO WITH STYLING HTML ELEMENTS USING JS
+window.onload = doStuff;
+$(document).ready(function() {
+    $('.loadingLogo').hide();
+    $('.everything').hide();
+});
 
+function doStuff() {
+  $('.loadingAnime').fadeIn(2000);
+  $('.loadingLogo').fadeIn(2000);
+  // $('.loadingLogo').show();
+  // $('.loadingLogo').fadeOut(2000);
+  setTimeout(function () {
+  $('.loadingAnime').fadeOut(2000);
+  setTimeout(function () {
+  $('.everything').fadeIn(1000);
+  },2000);
+  },2000);
+
+  // $('.everything').height();
+}
+// $('.everything').fadeIn(2000);
 // FADE IN
 function main(){
   if(listID == null){
