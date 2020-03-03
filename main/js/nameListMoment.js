@@ -1,3 +1,8 @@
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
 var teamArray; //Array with all the teams in the event
 var teamNumArray; //Array with all the team numbers (DEPRACATED)
 var tKeyArray; //Array with all the team keys
@@ -36,6 +41,8 @@ var avg; //Average value for a given team
 var table = document.getElementById('table-items');
 var p;
 // var u = 0;
+
+var eventMonth;
 
 $(document).ready(function() {
     $('.js-example-basic-single').select2();
@@ -359,8 +366,12 @@ function checkParams(){
     // url.searchParams.get('eventName');
     urlKey = eKeyArray.indexOf(listID);
     urlName = eNameArray[urlKey];
+      if(urlName != undefined){
     document.getElementById('event-name').innerHTML = urlName;
-
+    $('.event-name').show();
+      } else {
+          $('.event-name').hide();
+      }
     makeList(listID);
   }
 }
@@ -369,7 +380,9 @@ function checkParams(){
 
 var eventk;
 var eventkey;
-
+  var eventMonthString = new String;
+var startDate;
+var endDate;
 function makeList(x){
   currentEvent = x;
   $('ul').empty()
@@ -398,6 +411,8 @@ function makeList(x){
       }
     }
 
+
+  
   var eventInfoRequest = new XMLHttpRequest();
   eventInfoRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x);
   eventInfoRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
@@ -407,15 +422,36 @@ function makeList(x){
 
           var eventInfoObj = JSON.parse(this.responseText);
           console.log(eventInfoObj.start_date);
-          let now = new Date(eventInfoObj.start_date);
-          console.log(now); 
-          console.log(now.getMonth())
-        }
+          var startDate = new Date(eventInfoObj.start_date);
+          var endDate = new Date(eventInfoObj.end_date);
+          startDate.setDate(startDate.getDate(eventInfoObj.start_date)+1);
+          endDate.setDate(endDate.getDate(eventInfoObj.end_date)+1);
+          console.log(startDate); 
+          console.log(endDate);
+          eventMonth = startDate.getMonth();
+          var startDay = startDate.getDay();
+          var startDateNum = startDate.getDate();
+          var dateObj = document.getElementById('eventDate');
+          var endDay = endDate.getDay();
+          var endDayNum = endDate.getDate();
+          var endMonth = endDate.getMonth();
+        
+          
+          console.log(dayNames[startDay])
+      
+          if(eventMonth > 0){
+              $('.eventDate').show();
+              dateObj.innerHTML = dayNames[startDay] + ", " + monthNames[eventMonth] + " " + startDateNum + " - " + dayNames[endDay] + ", " + monthNames[endMonth] + " " + endDayNum;
+              
+          }
+      
+      }
 
       }
     }
+
     
-    
+
 
 
 function waitTillRun(){

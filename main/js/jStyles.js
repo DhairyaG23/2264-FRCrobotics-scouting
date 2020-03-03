@@ -26,6 +26,7 @@ function doStuff() {
 // $('.everything').fadeIn(2000);
 // FADE IN
 function main(){
+  $('.event-name').hide();
   if(listID == null){
   $('.massive-container').hide();
   $('form').hide();
