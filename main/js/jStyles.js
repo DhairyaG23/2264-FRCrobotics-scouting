@@ -7,6 +7,7 @@ window.onload = doStuff;
 $(document).ready(function() {
     $('.loadingLogo').hide();
     $('.everything').hide();
+    $('.eventInfoDiv').hide();
 });
 
 function doStuff() {

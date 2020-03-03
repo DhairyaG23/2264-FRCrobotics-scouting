@@ -375,8 +375,10 @@ function checkParams(){
       if(urlName != undefined){
     document.getElementById('event-name').innerHTML = urlName;
     $('.event-name').show();
+    $('.eventInfoDiv').show();
       } else {
           $('.event-name').hide();
+          $('.eventInfoDiv').hide();
       }
     makeList(listID);
   }
