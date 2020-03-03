@@ -157,7 +157,7 @@ tr {
 
 
 .makeEpicAppear {
-      background-color: white;  /*Green */
+  background-color: white;  /*Green */
   border: none;
   color: black;
   padding-top: 0.875vh;
@@ -170,7 +170,7 @@ tr {
   font-size: 1.25vh;
   font-family: 'Roboto';
   border: 2px solid darkgray;
-    width: 25vw;
+  width: 25vw;
 }
 
 /*
