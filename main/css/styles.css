@@ -23,6 +23,11 @@ hr {
     mix-blend-mode: difference;
 }
 
+.eventDate {
+    font-family: 'Roboto';
+    color: #7d7d7d;
+}
+
 body {
   text-align: center;
   /* General */
