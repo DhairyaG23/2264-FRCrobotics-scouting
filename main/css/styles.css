@@ -112,6 +112,17 @@ tr {
   font-size: 3vh;
 }
 
+.grayBack {
+    background-color: #d4d4d4;
+    height: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
 .submit-form {
   background-color: white;  /*Green */
   border: none;
@@ -486,7 +497,7 @@ button:hover span:after {
 }
 
 .event-name {
-  font-family: 'Tomorrow', sans-serif;
+  font-family: 'Roboto';
 }
 
 .loading-div {
@@ -664,5 +675,9 @@ button:hover span:after {
 
 .sortable th:hover {background-color: rgb(177, 177, 177);}
 
+    .grayBack {
+    background-color: #333333;
+}
+    
 
 }

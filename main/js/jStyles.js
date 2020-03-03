@@ -10,17 +10,18 @@ $(document).ready(function() {
 });
 
 function doStuff() {
-  $('.loadingAnime').fadeIn(2000);
-  $('.loadingLogo').fadeIn(2000);
-  // $('.loadingLogo').show();
-  // $('.loadingLogo').fadeOut(2000);
-  setTimeout(function () {
-  $('.loadingAnime').fadeOut(2000);
-  setTimeout(function () {
-  $('.everything').fadeIn(1000);
-  },2000);
-  },2000);
-
+//  $('.loadingAnime').fadeIn(2000);
+//  $('.loadingLogo').fadeIn(2000);
+//  // $('.loadingLogo').show();
+//  // $('.loadingLogo').fadeOut(2000);
+//  setTimeout(function () {
+//  $('.loadingAnime').fadeOut(2000);
+//  setTimeout(function () {
+//  $('.everything').fadeIn(1000);
+//  },2000);
+//  },2000);
+    $('.loadingLogo').fadeIn(1000);
+    $('.everything').fadeIn(1000);
   // $('.everything').height();
 }
 // $('.everything').fadeIn(2000);
