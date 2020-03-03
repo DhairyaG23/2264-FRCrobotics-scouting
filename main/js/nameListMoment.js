@@ -317,9 +317,12 @@ function putItems() {
       innerNums.innerHTML = finalArray4[listVar];
       outerNums.innerHTML = finalArray5[listVar];
       bottomNums.innerHTML = finalArray6[listVar];
-          $([document.documentElement, document.body]).animate({
-        scrollTop: $("#eventInfo").offset().top
-    }, 2000);
+//      var ddiv = document.getElementById('eventInfo');
+//      ddiv.scrollIntoView(true);
+//           $('html, body').animate({
+//        scrollTop: parseInt($("#eventInfo").offset().top)
+//    }, 2000);
+          document.getElementById("eventInfo").scrollIntoView( {behavior: "smooth" })
       // console.log("making stuff appear");
     }
 
