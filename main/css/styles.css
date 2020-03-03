@@ -94,9 +94,11 @@ h5 {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 2vw;
+  font-size: 2vh;
   font-family: 'Roboto';
   border: 2px solid darkgray;
+  margin-bottom: 2%;
+  width: 75vw;
 }
 
 tr {
@@ -110,12 +112,23 @@ tr {
 .numLabel {
   font-family: 'Roboto';
   font-size: 3vh;
+    margin-bottom: 0;
 }
 
 .grayBack {
     background-color: #d4d4d4;
-    height: 25vw;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.eventInfoDiv {
+    background-color: #d4d4d4;
+    width: 100vw;
+    display: inline-grid;
     justify-content: center;
     align-items: center;
     vertical-align: middle;
@@ -138,6 +151,7 @@ tr {
   font-family: 'Roboto';
   transition-duration: 0.4s;
   border: 2px solid darkgray;
+  width: 50vw;
 }
 
 
@@ -156,6 +170,7 @@ tr {
   font-size: 2vh;
   font-family: 'Roboto';
   border: 2px solid darkgray;
+    width: 25vw;
 }
 
 /*
@@ -166,7 +181,7 @@ tr {
 
 .numHeading {
     font-family: 'Roboto';
-    font-size: 3vw;
+    font-size: 3vh;
 }
 
 .logoPic {
@@ -355,6 +370,8 @@ button {
   font-size: 2vw;
   font-family: 'Roboto Mono', monospace;
 }
+
+
 
 button span {
   display: inline-block;
@@ -557,6 +574,8 @@ button:hover span:after {
   font-family: 'Roboto';
   border: 2px solid darkgray;
   transition-duration: 0.4s;
+  width: 75vw;
+  margin-top: 5px;
 }
 
 .myTeamSubmit:hover {
@@ -569,6 +588,15 @@ button:hover span:after {
     color: white;
 }
 
+
+
+
+
+
+
+select {
+    width: 75vw;
+}
 
 @media (prefers-color-scheme: dark) {
     body {
@@ -676,8 +704,10 @@ button:hover span:after {
 .sortable th:hover {background-color: rgb(177, 177, 177);}
 
     .grayBack {
-    background-color: #333333;
-}
-    
+        background-color: #212121;
+    }
+    .eventInfoDiv {
+        background-color: #212121;
+    }
 
 }

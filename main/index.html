@@ -112,19 +112,22 @@ media="(prefers-color-scheme: dark)">
                </div>
                </div>
               <!-- Form and Button -->
+            <div class="formCenter">
               <form onsubmit="return false;">
                 <select class="js-example-basic-single" name="state" id="event-chosen">
                   <option class="original-option">Choose an Event:</option>
                 </select>
               </form>
-       
+            </div>
               <button  class="submit-form" type="submit" onclick="sendEvent()"><span>Submit</span></button>
               <button onClick="showInfo()" class='makeEpicAppear' id='makeEpicAppear'> Toggle More Info </button>
 
-
+            <div class="eventInfoDiv">
             <h3 class="event-name" id="event-name"></h3>
             <h5 class="eventDate" id="eventDate"></h5>
-              <!-- List -->
+            </div>
+                <!-- List -->
+                
           <br>
           <div class="sometimes">
           <div width=device-width class="inline-centering"><picture>
