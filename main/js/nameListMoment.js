@@ -103,6 +103,7 @@ function showInfo() {
 //Get the team scores
 function getTeamScores (tKey, eKey, u) {
     // window["WLTRec" + u] = 0;
+    // console.log(tkey + u);
     var eee = "https://www.thebluealliance.com/api/v3/team/"+ tKey + "/events/2020/statuses?X-TBA-Auth-Key=lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5";
     let ok2 =  new URL(eee);
     fetch(ok2)
@@ -113,7 +114,12 @@ function getTeamScores (tKey, eKey, u) {
         gTSInner(tKey, eKey, u);
         window["teamWLRequestObj" + u] = myJson;
         window["wltRec" + u] = window["teamWLRequestObj" + u][String(eKey)];
-        window["WLTRec" + u] = window["wltRec" + u].playoff.record.wins + window["wltRec" + u].qual.ranking.record.wins;
+        // window["wltRecP" + u] = window["wltRec" + u].playoff.record.wins;
+        if(window["wltRec" + u].playoff == null) {
+          window["WLTRec" + u] = window["wltRec" + u].qual.ranking.record.wins;
+      } else {
+          window["WLTRec" + u] = window["wltRec" + u].playoff.record.wins + window["wltRec" + u].qual.ranking.record.wins;
+      }
       });
 
 
