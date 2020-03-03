@@ -160,14 +160,14 @@ tr {
       background-color: white;  /*Green */
   border: none;
   color: black;
-  padding-top: 0.5vh;
-  padding-bottom: 0.5vh;
+  padding-top: 0.875vh;
+  padding-bottom: 0.875vh;
   padding-right: 1.5vw;
   padding-left: 1.5vw;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 2vh;
+  font-size: 1.25vh;
   font-family: 'Roboto';
   border: 2px solid darkgray;
     width: 25vw;
