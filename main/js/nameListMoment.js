@@ -58,16 +58,29 @@ function reset() {
 
 //Get the new Team Key to work with
 function getKeys() {
+    var eee = "https://www.thebluealliance.com/api/v3/event/" + currentEvent + "?X-TBA-Auth-Key=lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5";
+    let ok2 =  new URL(eee);
+    fetch(ok2)
+      .then((response) => {
+        return response.json();
+      })
+      .then((myJson) => {
+          var sdate = myJson.start_date;
+          var today = new Date();
+          var date = today.getMonth()+1+'-'+today.getDate();
 
+    //if(event has started)
     for(index = 0; index < teamArray.length; index++) {
       currentTeam = tKeyArray[index];
 
       getTeamScores(currentTeam, currentEvent, index);
 
     }
+    else {
 
+    }
 
-// }
+    });
 }
 
 var items;
