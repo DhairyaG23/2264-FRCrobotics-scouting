@@ -98,7 +98,7 @@ h5 {
   font-family: 'Roboto';
   border: 2px solid darkgray;
   margin-bottom: 2%;
-  width: 75vw;
+  width: 25vw;
 }
 
 tr {
@@ -113,6 +113,8 @@ tr {
   font-family: 'Roboto';
   font-size: 3vh;
     margin-bottom: 0;
+
+
 }
 
 .grayBack {
@@ -151,7 +153,7 @@ tr {
   font-family: 'Roboto';
   transition-duration: 0.4s;
   border: 2px solid darkgray;
-  width: 50vw;
+  width: 30vw;
 }
 
 
@@ -160,17 +162,19 @@ tr {
   background-color: white;  /*Green */
   border: none;
   color: black;
-  padding-top: 0.875vh;
-  padding-bottom: 0.875vh;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
   padding-right: 1.5vw;
   padding-left: 1.5vw;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 1.25vh;
+  font-size: 2vh;
   font-family: 'Roboto';
+  transition-duration: 0.4s;
   border: 2px solid darkgray;
-  width: 25vw;
+  width: 30vw;
+
 }
 
 /*
@@ -190,8 +194,8 @@ tr {
 }
 
 .loadingAnime {
-
-  /* position: absolute; */
+  margin-top: 40vh;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -205,14 +209,15 @@ tr {
 
 
 
-.loadingLogo {
+.logoPic {
   /* visibility: hidden; */
+
   /* width: 10vw;
   height: auto; */
-  position: absolute;
-  top: 0%;
-  left: 50%;
-  margin-left: -4.7vw;
+  /* position: absolute; */
+  /* top: 30%; */
+  /* left: 50%; */
+  /* margin-left: -4.7vw; */
 }
 
 body, html {
@@ -220,9 +225,9 @@ body, html {
 }
 
 .everything {
-    /* visibility: hidden; */
-    /* height:0; */
-    /* display: none; */
+    visibility: hidden;
+    height:0;
+    display: none;
 }
 /* Everything Forms */
 form {
@@ -232,8 +237,30 @@ form {
 }
 
 .myTeamInput {
-    height: 3vh;
+  width: 75%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  /* background-image: url('searchicon.png'); */
+  /* background-position: 10px 10px; */
+  /* background-repeat: no-repeat; */
+  padding: 12px 20px 12px 5px;
+  height:3vh;
 }
+
+.myTeamInput {
+  transition: width 0.4s ease-in-out;
+}
+
+.myTeamInput:focus {
+  width: 100%;
+}
+
+/* .teamNumForm {
+    width:75%;
+} */
 
 select {
   background-color: #f5f2d0;
@@ -259,7 +286,7 @@ img {
 .header {
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.4);
-  height: 12vw;
+  height: 100%;
 }
 
 .header a {
@@ -574,8 +601,9 @@ button:hover span:after {
   font-family: 'Roboto';
   border: 2px solid darkgray;
   transition-duration: 0.4s;
-  width: 75vw;
+  width: 25vw;
   margin-top: 5px;
+
 }
 
 .myTeamSubmit:hover {
