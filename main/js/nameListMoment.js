@@ -464,7 +464,9 @@ function makeList(x){
       }
     }
 
-    
+function myTeamInfo() {
+    window.location.href = 'my-team.html';
+}
 
 
 
