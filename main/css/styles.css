@@ -153,7 +153,7 @@ tr {
   font-family: 'Roboto';
   transition-duration: 0.4s;
   border: 2px solid darkgray;
-  width: 75vw;
+  /* width: 75vw; */
   margin-bottom: 2%;
 }
 
@@ -173,7 +173,7 @@ tr {
   font-size: 2vh;
   font-family: 'Roboto';
   border: 3px solid #eb8034;
-  width: 75vw;
+  /* width: 75vw; */
   transition-duration: 0.4s;
 
 }
@@ -228,7 +228,7 @@ body, html {
 .everything {
     visibility: hidden;
     height:0;
-    display: none;
+    /* display: none; */
 }
 /* Everything Forms */
 form {
@@ -236,6 +236,9 @@ form {
   margin-bottom: 20px;
 
 }
+
+/* html, body {margin: 0; height: 100%; overflow: hidden} */
+
 
 .myTeamInput {
   width: 75%;
@@ -250,8 +253,12 @@ form {
   padding: 12px 20px 12px 5px;
   height: 3vh;
   transition-duration: 0.4s;
+<<<<<<< HEAD
+
+=======
   color: black;
   
+>>>>>>> a02c4e18178b13c34a25888b1adc1b8a90e28299
 }
 
 
@@ -294,6 +301,7 @@ img {
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.4);
   height: 100%;
+  /* margin-top: 40vh; */
 }
 
 .header a {
@@ -306,14 +314,38 @@ img {
 .header a.logo {
   font-size: 25px;
   font-weight: bold;
+  /* margin-top: 40vh; */
 }
+
 
 .logo {
   /* margin-top: 4vh; */
   display: inline-block;
-  size: 50%;
+  /* size: 50%; */
+  height: 17vh;
 }
 
+.rotate {
+  animation: rotation 1s linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+.marginTime {
+  display: inline-block;
+  size: 50%;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 40vh;
+}
 /* .original-option {
   font-size: 1.75vw;
 } */
@@ -572,21 +604,7 @@ button:hover span:after {
 }
 
 /* More Animation Stuff */
-@-webkit-keyframes AnimationName {
-    0%{background-position:0% 0%}
-    50%{background-position:100% 100%}
-    100%{background-position:0% 0%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:0% 0%}
-    50%{background-position:100% 100%}
-    100%{background-position:0% 0%}
-}
-@keyframes AnimationName {
-    0%{background-position:0% 0%}
-    50%{background-position:100% 100%}
-    100%{background-position:0% 0%}
-}
+
 
 @keyframes buttonHover {
     0%{background-color: white}
@@ -748,5 +766,5 @@ select {
     .makeEpicAppear:hover {
         background-color: #eb8034;
     }
-    
+
 }
