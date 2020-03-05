@@ -60,7 +60,7 @@ function workCookie(){
         $('.showNum').hide();
     }
    }
-  }, 1000)
+ }, 2000)
 }
 
 
