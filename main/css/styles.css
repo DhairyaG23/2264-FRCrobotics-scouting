@@ -25,11 +25,12 @@ hr {
 
 .eventDate {
     font-family: 'Roboto';
-    color: #7d7d7d;
+    color: black;
 }
 
 h3 {
     font-family: 'Roboto';
+    color: #7d7d7d;
 }
 
 body {
@@ -769,6 +770,9 @@ select {
 
     .makeEpicAppear:hover {
         background-color: #eb8034;
+    }
+    .eventDate {
+    color: #7d7d7d;
     }
 
 }
