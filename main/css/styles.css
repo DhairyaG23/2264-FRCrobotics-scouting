@@ -19,6 +19,11 @@ html {
     color-scheme: light dark;
 }
 
+.notice {
+  font-family: "Roboto";
+  font-size: 1.5vw;
+}
+
 hr {
     mix-blend-mode: difference;
 }
