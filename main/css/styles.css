@@ -266,12 +266,14 @@ form {
     width:75%;
 } */
 
+/*
 select {
   background-color: #f5f2d0;
   width: 50vw;
   font-family: 'Robot';
   font-size: 2.5vh;
 }
+*/
 option {
   font-family: 'Abel', sans-serif;
   font-size: 3vh;
