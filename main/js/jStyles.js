@@ -5,29 +5,28 @@ var listID = url.searchParams.get('listID');
 window.onload = doStuff;
 $('.everything').hide();
 $(document).ready(function() {
-    $('.loadingLogo').hide();
+    $('.loadingAnime').hide();
     $('.everything').hide();
     $('.eventInfoDiv').hide();
 });
 
 function doStuff() {
- $('.loadingAnime').fadeIn(2000);
-
- // $('.loadingLogo').show();
- // $('.loadingLogo').fadeOut(2000);
-
- // setTimeout(function () {
-
-   // $('.everything').fadeIn(1000);
+ $('.loadingAnime').fadeIn(500);
    setTimeout(function () {
-        $('.everything').css({'display': 'inline-block !important', 'visibility': 'visible'});
-        $('.loadingAnime').css({'height': '12vw', 'margin-top': '0%'});
-        $('.header').css({'height': '12vw'});
-        $('.logoPic').css({'top': '0vh'})
+        $('.everything').css({'display': 'block !important', 'visibility': 'visible'});
+
+        var el = $('.loadingAnime');
+            curHeight = "100%";
+            autoHeight = '17vh';
+
+        $('.header').height(curHeight).animate({height: autoHeight}, 1000);
+        el.height(curHeight).animate({height: autoHeight}, 1000);
+        $('.marginTime').animate({marginTop: '0%'}, 1000);
+        // $('.logoPic').css({'top': '0vh'})
+
         $('.everything').fadeIn(1000);
    },1000);
- // },2000);
-  // $('.everything').height();
+
 }
 // $('.everything').fadeIn(2000);
 // FADE IN
