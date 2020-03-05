@@ -8,10 +8,11 @@ $(document).ready(function() {
     $('.loadingAnime').hide();
     $('.everything').hide();
     $('.eventInfoDiv').hide();
+    $('.header').hide();
 });
 
 function doStuff() {
- $('.loadingAnime').fadeIn(500);
+ $('.header').fadeIn(500);
    setTimeout(function () {
         $('.everything').css({'display': 'block !important', 'visibility': 'visible'});
 
