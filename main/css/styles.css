@@ -28,6 +28,10 @@ hr {
     color: #7d7d7d;
 }
 
+h3 {
+    font-family: 'Roboto';
+}
+
 body {
   text-align: center;
   /* General */
