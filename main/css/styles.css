@@ -312,6 +312,13 @@ img {
   /* margin-top: 40vh; */
 }
 
+.header2 {
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 17vh;
+  font-size: 25px;
+  font-weight: bold;
+}
 
 .logo {
   /* margin-top: 4vh; */
