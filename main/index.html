@@ -73,15 +73,22 @@
       </background>
 -->
         <!-- <img src="logo2.png" class="loadingLogo" id="loadingLogo"> -->
-
-        <div class="header">
-          <!-- Logo -->
-
-        <div class="center-header, logo, loadingLogo"><a href="index.html" class="logo"><picture>
+          <div class="header">
+        <div class="center-header, logo, loadingAnime"><a href="index.html" class="logo"><picture>
  <source srcset="logo2.png"
 media="(prefers-color-scheme: dark)">
  <img src="logo.png" class="logoPic">
 </picture></a></div>
+
+
+
+          <!-- Logo -->
+
+        <!-- <div class="center-header, logo, loadingLogo"><a href="index.html" class="logo"><picture>
+ <source srcset="logo2.png"
+media="(prefers-color-scheme: dark)">
+ <img src="logo.png" class="logoPic">
+</picture></a></div> -->
         </div>
         <div class = "everything" id="everything">
 
@@ -97,14 +104,15 @@ media="(prefers-color-scheme: dark)">
             <div class="teamNumFormDiv"><form class="teamNumForm"onsubmit="return false;">
               <label class="numLabel" for="myTeamInput">Your Team Number:</label>
                 <br>
-              <input type="number" id="myTeamNumber" class="myTeamInput" placeholder="(e.g. 2264)">
+              <!-- <input type="number" id="myTeamNumber" class="myTeamInput" placeholder="(e.g. 2264)"> -->
+              <input type="number" id="myTeamNumber" class="myTeamInput">
                 <button type="submit" onclick="createCookie(document.getElementById('myTeamNumber').value)" class='myTeamSubmit'>Submit</button>
 
                     <br>
             </form>
 
             </div>
-            
+
             <div class="showNum">
                    <h4 class="numHeading" id="numHeading"></h4>
                    <button  id = "myTeamButton" type= "button" class="myTeamButton"> <a class = "normal" href="my-team.html"><span> My Team Info</span></a></button>
@@ -127,7 +135,7 @@ media="(prefers-color-scheme: dark)">
             <h5 class="eventDate" id="eventDate"></h5>
             </div>
                 <!-- List -->
-                
+
           <br>
           <div class="sometimes">
           <div width=device-width class="inline-centering"><picture>
