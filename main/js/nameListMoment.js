@@ -323,9 +323,9 @@ function putItems() {
 //        scrollTop: parseInt($("#eventInfo").offset().top)
 //    }, 2000);
           document.getElementById("eventInfo").scrollIntoView( {behavior: "smooth" })
+//   
       // console.log("making stuff appear");
     }
-
 
         $('.loading').fadeOut(600);
         $('.sortable').fadeIn(1000);

@@ -151,7 +151,8 @@ tr {
   font-family: 'Roboto';
   transition-duration: 0.4s;
   border: 2px solid darkgray;
-  width: 50vw;
+  width: 75vw;
+  margin-bottom: 2%;
 }
 
 
@@ -167,10 +168,10 @@ tr {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 1.25vh;
+  font-size: 2vh;
   font-family: 'Roboto';
-  border: 2px solid darkgray;
-  width: 25vw;
+  border: 3px solid #eb8034;
+  width: 75vw;
 }
 
 /*
@@ -238,7 +239,7 @@ form {
 select {
   background-color: #f5f2d0;
   width: 50vw;
-  font-family: 'Abel', sans-serif;
+  font-family: 'Robot';
   font-size: 2.5vh;
 }
 option {
@@ -710,4 +711,8 @@ select {
         background-color: #212121;
     }
 
+    .makeEpicAppear:hover {
+        background-color: #eb8034;
+    }
+    
 }
