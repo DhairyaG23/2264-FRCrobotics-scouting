@@ -5,7 +5,8 @@ const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frida
 
 var teamArray; //Array with all the teams in the event
 var teamNumArray; //Array with all the team numbers (DEPRACATED)
-var tKeyArray; //Array with all the team keys
+var tKeyArray; //Array with all the teak keys
+var teamRankArray;
 
 var currentTeam; //The current team being sent to get a score
 var currentEvent; //The current event being processed
@@ -442,13 +443,16 @@ function makeList(x){
   currentEvent = x;
   $('ul').empty()
   teamArray = [];
+  teamRankArray = [];
   teamNumArray = [];
   tKeyArray = [];
   eventKey = x;
+  var teamRankRequest = new XMLHttpRequest();
   var teamRequest = new XMLHttpRequest();
   teamRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x + "/teams" , true);
   teamRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
   teamRequest.send();
+
   teamRequest.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200){
 
@@ -459,6 +463,17 @@ function makeList(x){
             teamArray.push(teamRequestObj[a].nickname);
             tKeyArray.push(teamRequestObj[a].key);
             teamNumArray.push(teamRequestObj[a].team_number);
+            teamRankRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/" + tKeyArray[a] + "/event/" + x + "/status"  , true);
+            teamRankRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+            teamRankRequest.send();
+            teamRankRequest.onreadystatechange = function(){
+              if(this.readyState == 4 && this.status == 200){
+                var teamRankObj = JSON.parse(this.responseText);
+                // console.log(teamRankObj.qual.rank);
+                // teamRankArray.push(teamRankObj.qual.rank);
+
+              }
+            }
         }
         // reset();
         getKeys();
