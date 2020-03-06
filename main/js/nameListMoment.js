@@ -215,7 +215,7 @@ function getTeamScores (tKey, eKey, u) {
                     }
                 }
                 //FIX LINE UNDERNEATH!!!!
-                if(window["teamAlliance" + u] == "blue" == null) {
+                if(window["teamAlliance" + u] == "blue") {
 
                 } else {
                   if(window["teamScoreRequestObj" + u].length == 0) {
@@ -234,7 +234,7 @@ function getTeamScores (tKey, eKey, u) {
                 window["teamAlliance" + u] = "";
 
               }
-              if(window["teamScoreRequestObj" + u].length == 0) {
+              if(window["teamScoreRequestObj" + u].length == 0 ||window["WLTRec" + u] +  window["WLTRec2" + u] +  window["WLTRec3" + u] == 0 ) {
                 window["avg" + u] = "No Info";
 
 
@@ -252,22 +252,23 @@ function getTeamScores (tKey, eKey, u) {
 
                 window["bottomAvg" + u] = "No Info";
               } else {
-                  window["avg" + u] = (window["teamTotal" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+                window["nOM" + u] = window["WLTRec" + u] +  window["WLTRec2" + u] +  window["WLTRec3" + u];
+                  window["avg" + u] = (window["teamTotal" + u]/window["nOM" + u]).toFixed(2);
 
 
-                  window["autoAvg" + u] = (window["autoTotal" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+                  window["autoAvg" + u] = (window["autoTotal" + u]/window["nOM" + u]).toFixed(2);
 
 
-                  window["tOPAvg" + u] = (window["tOPTotal" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+                  window["tOPAvg" + u] = (window["tOPTotal" + u]/window["nOM" + u]).toFixed(2);
 
 
-                  window["innerAvg" + u] = (window["innerVar" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+                  window["innerAvg" + u] = (window["innerVar" + u]/window["nOM" + u]).toFixed(2);
 
 
-                  window["outerAvg" + u] = (window["outerVar" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+                  window["outerAvg" + u] = (window["outerVar" + u]/window["nOM" + u]).toFixed(2);
 
 
-                  window["bottomAvg" + u] = (window["bottomVar" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+                  window["bottomAvg" + u] = (window["bottomVar" + u]/window["nOM" + u]).toFixed(2);
             }
 
               // window["eventScoreArray" + u] = [];
