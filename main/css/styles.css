@@ -329,7 +329,8 @@ img {
   /* margin-top: 4vh; */
   display: inline-block;
   /* size: 50%; */
-  height: 17vh;
+  height: 17vw;
+  width: auto;
 }
 
 .rotate {
