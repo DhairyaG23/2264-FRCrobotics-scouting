@@ -178,7 +178,7 @@ function getTeamScores (tKey, eKey, u) {
                         window["keykey" + u + "00" + String(matchNum)] = window["keyk" + u + "00" + String(matchNum)] + 1;
                         window["keyk" + u + "00" + String(matchNum)] = 3;
                         window["teamAlliance" + u] = "blue";
-
+                        
                         window["teamTotal" + u] += window["teamScoreRequestObj" + u][matchNum].alliances.blue.score
                         window["outerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.autoCellsOuter + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsOuter;
                         window["innerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.autoCellsInner + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsInner;
@@ -323,7 +323,7 @@ function putItems() {
 //        scrollTop: parseInt($("#eventInfo").offset().top)
 //    }, 2000);
           document.getElementById("eventInfo").scrollIntoView( {behavior: "smooth" })
-//   
+//
       // console.log("making stuff appear");
     }
 
@@ -426,7 +426,7 @@ function makeList(x){
     }
 
 
-  
+
   var eventInfoRequest = new XMLHttpRequest();
   eventInfoRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x);
   eventInfoRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
@@ -440,7 +440,7 @@ function makeList(x){
           var endDate = new Date(eventInfoObj.end_date);
           startDate.setDate(startDate.getDate(eventInfoObj.start_date)+1);
           endDate.setDate(endDate.getDate(eventInfoObj.end_date)+1);
-          console.log(startDate); 
+          console.log(startDate);
           console.log(endDate);
           eventMonth = startDate.getMonth();
           var startDay = startDate.getDay();
@@ -449,16 +449,16 @@ function makeList(x){
           var endDay = endDate.getDay();
           var endDayNum = endDate.getDate();
           var endMonth = endDate.getMonth();
-        
-          
+
+
           console.log(dayNames[startDay])
-      
+
           if(eventMonth > 0){
               $('.eventDate').show();
               dateObj.innerHTML = dayNames[startDay] + ", " + monthNames[eventMonth] + " " + startDateNum + " - " + dayNames[endDay] + ", " + monthNames[endMonth] + " " + endDayNum;
-              
+
           }
-      
+
       }
 
       }
