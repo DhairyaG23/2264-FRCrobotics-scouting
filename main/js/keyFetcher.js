@@ -27,10 +27,6 @@ function geteName() {
 
 eNameRequest.open('GET', "https://www.thebluealliance.com/api/v3/events/2020", true);
 eNameRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-eNameRequest.timeout = 2000;
-eNameRequest.ontimeout = function(){
-  alert('timedout')
-}
 eNameRequest.send();
 
 eNameRequest.onreadystatechange = function() {
