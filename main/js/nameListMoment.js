@@ -129,8 +129,12 @@ function getTeamScores (tKey, eKey, u) {
         } else {
         if(window["wltRec" + u].playoff == null) {
           window["WLTRec" + u] = window["wltRec" + u].qual.ranking.record.wins;
+          window["WLTRec2" + u] = window["wltRec" + u].qual.ranking.record.losses;
+          window["WLTRec3" + u] = window["wltRec" + u].qual.ranking.record.ties;
       } else {
-          window["WLTRec" + u] = window["wltRec" + u].playoff.record.wins + window["wltRec" + u].qual.ranking.record.wins;
+        window["WLTRec" + u] = window["wltRec" + u].playoff.record.wins + window["wltRec" + u].qual.ranking.record.wins;
+        window["WLTRec2" + u] = window["wltRec" + u].playoff.record.losses + window["wltRec" + u].qual.ranking.record.losses;
+        window["WLTRec3" + u] = window["wltRec" + u].playoff.record.ties + window["wltRec" + u].qual.ranking.record.ties;
       }
     }
       });
@@ -154,7 +158,7 @@ function getTeamScores (tKey, eKey, u) {
         window["nOM" + u] = 0;
         if(window["teamScoreRequestObj" + u].length == 0) {
         } else {
-            window["nOM" + u] = window["teamScoreRequestObj" + u].length;
+            window["nOM" + u] = window["WLTRec" + u] +  window["WLTRec2" + u] +  window["WLTRec3" + u];
             window["winRate" + u] = window["WLTRec" + u]/window["nOM" + u];
             window["winRate" + u] = window["winRate" + u].toFixed(2);
           }
@@ -197,30 +201,34 @@ function getTeamScores (tKey, eKey, u) {
                         if(window["teamScoreRequestObj" + u].length == 0) {
 
                         } else {
-                        window["teamTotal" + u] += window["teamScoreRequestObj" + u][matchNum].alliances.blue.score
-                        window["outerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.autoCellsOuter + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsOuter;
-                        window["innerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.autoCellsInner + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsInner;
-                        window["bottomVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.autoCellsBottom + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsBottom;
-                        window["autoTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.autoPoints;
-                        window["tOPTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.teleopPoints;
+                          if(window["teamScoreRequestObj" + u][matchNum].alliances.blue.score >= 0) {
+                              window["teamTotal" + u] += window["teamScoreRequestObj" + u][matchNum].alliances.blue.score;
+                              window["outerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.autoCellsOuter + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsOuter;
+                              window["innerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.autoCellsInner + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsInner;
+                              window["bottomVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.autoCellsBottom + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsBottom;
+                              window["autoTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.autoPoints;
+                              window["tOPTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.teleopPoints;
+                            }
                       }
                     } else {
                         window["keyk" + u + "00" + String(matchNum)]++;
                     }
                 }
                 //FIX LINE UNDERNEATH!!!!
-                if(window["teamAlliance" + u] == "blue") {
+                if(window["teamAlliance" + u] == "blue" == null) {
 
                 } else {
                   if(window["teamScoreRequestObj" + u].length == 0) {
 
                   } else {
-                    window["teamTotal" + u] += window["teamScoreRequestObj" + u][matchNum].alliances.red.score
-                    window["outerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoCellsOuter + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsOuter;
-                    window["innerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoCellsInner + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsInner;
-                    window["bottomVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoCellsBottom + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsBottom;
-                    window["autoTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoPoints;
-                    window["tOPTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopPoints;
+                    if(window["teamScoreRequestObj" + u][matchNum].alliances.red.score >= 0) {
+                        window["teamTotal" + u] += window["teamScoreRequestObj" + u][matchNum].alliances.red.score
+                        window["outerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoCellsOuter + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsOuter;
+                        window["innerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoCellsInner + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsInner;
+                        window["bottomVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoCellsBottom + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsBottom;
+                        window["autoTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoPoints;
+                        window["tOPTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopPoints;
+                      }
                   }
                 }
                 window["teamAlliance" + u] = "";
