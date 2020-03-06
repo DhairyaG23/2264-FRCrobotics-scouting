@@ -132,7 +132,7 @@ function makeRequest(x){
 
 function geteNameDelay(){
     setTimeout(function(){
-        geteName();
+
     }, 200);
 }
 
