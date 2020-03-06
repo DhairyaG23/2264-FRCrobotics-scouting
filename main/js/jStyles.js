@@ -18,7 +18,7 @@ function doStuff() {
 
         var el = $('.loadingAnime');
             curHeight = "100%";
-            autoHeight = '15%';
+            autoHeight = '17vw';
 
         $('.header').height(curHeight).animate({height: autoHeight}, 1000);
         el.height(curHeight).animate({height: autoHeight}, 1000);

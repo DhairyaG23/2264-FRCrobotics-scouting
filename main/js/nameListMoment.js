@@ -119,14 +119,20 @@ function getTeamScores (tKey, eKey, u) {
       })
       .then((myJson) => {
         gTSInner(tKey, eKey, u);
+        window["WLTRec" + u] = 0;
+        window["WLTRec" + u] = 0;
         window["teamWLRequestObj" + u] = myJson;
         window["wltRec" + u] = window["teamWLRequestObj" + u][String(eKey)];
         // window["wltRecP" + u] = window["wltRec" + u].playoff.record.wins;
+        if(!window["wltRec" + u]) {
+
+        } else {
         if(window["wltRec" + u].playoff == null) {
           window["WLTRec" + u] = window["wltRec" + u].qual.ranking.record.wins;
       } else {
           window["WLTRec" + u] = window["wltRec" + u].playoff.record.wins + window["wltRec" + u].qual.ranking.record.wins;
       }
+    }
       });
 
 
@@ -145,7 +151,16 @@ function getTeamScores (tKey, eKey, u) {
             window["teamScoreRequestObj" + u] = myJson;   // create counter1, counter2,...)
 
         //Reset the Team Totals and Averages
-        window["nOM" + u] = window["teamScoreRequestObj" + u].length;
+        window["nOM" + u] = 0;
+        if(window["teamScoreRequestObj" + u].length == 0) {
+        } else {
+            window["nOM" + u] = window["teamScoreRequestObj" + u].length;
+            window["winRate" + u] = window["WLTRec" + u]/window["nOM" + u];
+            window["winRate" + u] = window["winRate" + u].toFixed(2);
+          }
+        if(isNaN(window["winRate" + u])) {
+              window["winRate" + u] = "No Info";
+        }
 
         window["autoAvg" + u] = 0;
         window["autoTotal" + u] = 0;
@@ -163,8 +178,8 @@ function getTeamScores (tKey, eKey, u) {
         window["innerVar" + u] = 0;
         window["outerAvg" + u] = 0;
         window["outerVar" + u] = 0;
-        window["winRate" + u] = window["WLTRec" + u]/window["nOM" + u];
-        window["winRate" + u] = window["winRate" + u].toFixed(2);
+        // window["winRate" + u] = window["WLTRec" + u]/window["nOM" + u];
+
 
 
 
@@ -177,19 +192,18 @@ function getTeamScores (tKey, eKey, u) {
                         // console.log(window["keyk" + u + "00" + String(matchNum)]);
                         window["keykey" + u + "00" + String(matchNum)] = window["keyk" + u + "00" + String(matchNum)] + 1;
                         window["keyk" + u + "00" + String(matchNum)] = 3;
+
                         window["teamAlliance" + u] = "blue";
-                        
+                        if(window["teamScoreRequestObj" + u].length == 0) {
+
+                        } else {
                         window["teamTotal" + u] += window["teamScoreRequestObj" + u][matchNum].alliances.blue.score
                         window["outerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.autoCellsOuter + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsOuter;
                         window["innerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.autoCellsInner + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsInner;
                         window["bottomVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.autoCellsBottom + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsBottom;
                         window["autoTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.autoPoints;
                         window["tOPTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.blue.teleopPoints;
-                        // if(window["teamScoreRequestObj" + u][matchNum].winningAlliance = "blue") {
-                        //     window["nOW" + u]++;
-                        //     console.log("running blue");
-                        // }
-                        // console.log(window["keyk" + u + "00" + String(matchNum)]);
+                      }
                     } else {
                         window["keyk" + u + "00" + String(matchNum)]++;
                     }
@@ -198,38 +212,55 @@ function getTeamScores (tKey, eKey, u) {
                 if(window["teamAlliance" + u] == "blue") {
 
                 } else {
+                  if(window["teamScoreRequestObj" + u].length == 0) {
+
+                  } else {
                     window["teamTotal" + u] += window["teamScoreRequestObj" + u][matchNum].alliances.red.score
                     window["outerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoCellsOuter + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsOuter;
                     window["innerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoCellsInner + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsInner;
                     window["bottomVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoCellsBottom + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsBottom;
                     window["autoTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoPoints;
                     window["tOPTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopPoints;
-                    // if(window["teamScoreRequestObj" + u][matchNum].winningAlliance = "red") {
-                    //     window["nOW" + u]++;
-                    //     console.log("running red");
-                    // }
+                  }
                 }
                 window["teamAlliance" + u] = "";
 
               }
-
-              window["avg" + u] = (window["teamTotal" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
-
-
-              window["autoAvg" + u] = (window["autoTotal" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+              if(window["teamScoreRequestObj" + u].length == 0) {
+                window["avg" + u] = "No Info";
 
 
-              window["tOPAvg" + u] = (window["tOPTotal" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+                window["autoAvg" + u] = "No Info";
 
 
-              window["innerAvg" + u] = (window["innerVar" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+                window["tOPAvg" + u] = "No Info";
 
 
-              window["outerAvg" + u] = (window["outerVar" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+                window["innerAvg" + u] = "No Info";
 
 
-              window["bottomAvg" + u] = (window["bottomVar" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+                window["outerAvg" + u] = "No Info";
 
+
+                window["bottomAvg" + u] = "No Info";
+              } else {
+                  window["avg" + u] = (window["teamTotal" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+
+
+                  window["autoAvg" + u] = (window["autoTotal" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+
+
+                  window["tOPAvg" + u] = (window["tOPTotal" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+
+
+                  window["innerAvg" + u] = (window["innerVar" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+
+
+                  window["outerAvg" + u] = (window["outerVar" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+
+
+                  window["bottomAvg" + u] = (window["bottomVar" + u]/window["teamScoreRequestObj" + u].length).toFixed(2);
+            }
 
               // window["eventScoreArray" + u] = [];
               //
@@ -363,6 +394,7 @@ function clear() {
         window["innerVar" + pp] = 0;
         window["outerAvg" + pp] = 0;
         window["outerVar" + pp] = 0;
+        window["winRate" + pp] = "No Info";
         reps = 0;
       }
 }
