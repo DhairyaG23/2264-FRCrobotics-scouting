@@ -26,6 +26,9 @@ function doStuff() {
         // $('.logoPic').css({'top': '0vh'})
 
         $('.everything').fadeIn(1000);
+        setTimeout(function () {
+            geteName();
+        },1500);
    },1000);
 
 }
