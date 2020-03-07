@@ -278,7 +278,7 @@ function getTeamScores (tKey, eKey, u) {
               reps++;
               if(reps == teamArray.length) {
                 // setTimeout(function() {
-                  console.log("running");
+                  // console.log("running");
                   for(v = 0; v < teamArray.length; v++) {
                     // console.log(window["avg" + v]);
                     // finalArray.push(window["avg" + v]);
@@ -502,13 +502,13 @@ function makeList(x){
       if (this.readyState == 4 && this.status == 200){
 
           var eventInfoObj = JSON.parse(this.responseText);
-          console.log(eventInfoObj.start_date);
+          // console.log(eventInfoObj.start_date);
           var startDate = new Date(eventInfoObj.start_date);
           var endDate = new Date(eventInfoObj.end_date);
           startDate.setDate(startDate.getDate(eventInfoObj.start_date)+1);
           endDate.setDate(endDate.getDate(eventInfoObj.end_date)+1);
-          console.log(startDate);
-          console.log(endDate);
+          // console.log(startDate);
+          // console.log(endDate);
           eventMonth = startDate.getMonth();
           var startDay = startDate.getDay();
           var startDateNum = startDate.getDate();
@@ -518,7 +518,7 @@ function makeList(x){
           var endMonth = endDate.getMonth();
 
 
-          console.log(dayNames[startDay])
+          // console.log(dayNames[startDay])
 
           if(eventMonth > 0){
               $('.eventDate').show();
