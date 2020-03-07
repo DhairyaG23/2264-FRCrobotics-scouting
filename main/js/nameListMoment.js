@@ -311,6 +311,7 @@ function putItems() {
       for (listVar = 0; listVar < teamArray.length; listVar++) {
 
       var tr = document.createElement('tr');
+      var rank = document.createElement('td');
       var teamNames = document.createElement('td');
       var avgs = document.createElement('td');
       var wlrec = document.createElement('td');
@@ -337,6 +338,7 @@ function putItems() {
       var table = document.getElementById('table-items');
 
       table.appendChild(tr);
+      tr.append(rank);
       // table.appendChild(empty);
       tr.appendChild(teamNames);
       // tr.appendChild(wlrec);
@@ -347,8 +349,10 @@ function putItems() {
       tr.appendChild(outerNums);
       tr.appendChild(innerNums);
 
+      rank.classList.add('rankAlign');
       // //console.log("P is" + p);
-      teamNames.innerHTML = teamRankArray[listVar] + ". "+ teamArray[listVar] + " - " + teamNumArray[listVar];
+      rank.innerHTML = teamRankArray[listVar]; + '.';
+      teamNames.innerHTML = teamArray[listVar] + " - " + teamNumArray[listVar];
       // teamScores.innerHTML = finalArray[listVar];
       autoScores.innerHTML = finalArray2[listVar];
       tOPScores.innerHTML = finalArray3[listVar];
@@ -368,7 +372,7 @@ function putItems() {
 
         $('.loading').fadeOut(600);
         $('.sortable').fadeIn(1000);
-        var myTH = document.getElementById('teamNames');
+        var myTH = document.getElementById('teamRanks');
         sorttable.innerSortFunction.apply(myTH, []);
         sorttable.innerSortFunction.apply(myTH, []);
         $('.makeEpicAppear').fadeIn(500);
