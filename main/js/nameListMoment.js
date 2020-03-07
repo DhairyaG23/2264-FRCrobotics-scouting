@@ -130,12 +130,12 @@ function getTeamScores (tKey, eKey, u) {
         } else {
         if(window["wltRec" + u].playoff == null) {
           window["WLTRec" + u] = window["wltRec" + u].qual.ranking.record.wins;
-          window["WLTRec2" + u] = window["wltRec" + u].qual.ranking.record.losses;
-          window["WLTRec3" + u] = window["wltRec" + u].qual.ranking.record.ties;
+          window["WLTRecA" + u] = window["wltRec" + u].qual.ranking.record.losses;
+          window["WLTRecB" + u] = window["wltRec" + u].qual.ranking.record.ties;
       } else {
         window["WLTRec" + u] = window["wltRec" + u].playoff.record.wins + window["wltRec" + u].qual.ranking.record.wins;
-        window["WLTRec2" + u] = window["wltRec" + u].playoff.record.losses + window["wltRec" + u].qual.ranking.record.losses;
-        window["WLTRec3" + u] = window["wltRec" + u].playoff.record.ties + window["wltRec" + u].qual.ranking.record.ties;
+        window["WLTRecA" + u] = window["wltRec" + u].playoff.record.losses + window["wltRec" + u].qual.ranking.record.losses;
+        window["WLTRecB" + u] = window["wltRec" + u].playoff.record.ties + window["wltRec" + u].qual.ranking.record.ties;
       }
     }
       });
@@ -159,7 +159,7 @@ function getTeamScores (tKey, eKey, u) {
         window["nOM" + u] = 0;
         if(window["teamScoreRequestObj" + u].length == 0) {
         } else {
-            window["nOM" + u] = window["WLTRec" + u] +  window["WLTRec2" + u] +  window["WLTRec3" + u];
+            window["nOM" + u] = window["WLTRec" + u] +  window["WLTRecA" + u] +  window["WLTRecB" + u];
             window["winRate" + u] = window["WLTRec" + u]/window["nOM" + u];
             window["winRate" + u] = window["winRate" + u].toFixed(2);
           }
@@ -235,7 +235,7 @@ function getTeamScores (tKey, eKey, u) {
                 window["teamAlliance" + u] = "";
 
               }
-              if(window["teamScoreRequestObj" + u].length == 0 ||window["WLTRec" + u] +  window["WLTRec2" + u] +  window["WLTRec3" + u] == 0 ) {
+              if(window["teamScoreRequestObj" + u].length == 0 ||window["WLTRec" + u] +  window["WLTRecA" + u] +  window["WLTRecB" + u] == 0 ) {
                 window["avg" + u] = "No Info";
 
 
@@ -253,29 +253,27 @@ function getTeamScores (tKey, eKey, u) {
 
                 window["bottomAvg" + u] = "No Info";
               } else {
-                window["nOM" + u] = window["WLTRec" + u] +  window["WLTRec2" + u] +  window["WLTRec3" + u];
-                  window["avg" + u] = (window["teamTotal" + u]/window["nOM" + u]).toFixed(2);
+                window["nOMAlt" + u] = 0;
+                window["nOMAlt" + u] = window["WLTRec" + u] +  window["WLTRecA" + u] + window["WLTRecB" + u];
+                  window["avg" + u] = (window["teamTotal" + u]/window["nOMAlt" + u]).toFixed(2);
 
 
-                  window["autoAvg" + u] = (window["autoTotal" + u]/window["nOM" + u]).toFixed(2);
+                  window["autoAvg" + u] = (window["autoTotal" + u]/window["nOMAlt" + u]).toFixed(2);
 
 
-                  window["tOPAvg" + u] = (window["tOPTotal" + u]/window["nOM" + u]).toFixed(2);
+                  window["tOPAvg" + u] = (window["tOPTotal" + u]/window["nOMAlt" + u]).toFixed(2);
 
 
-                  window["innerAvg" + u] = (window["innerVar" + u]/window["nOM" + u]).toFixed(2);
+                  window["innerAvg" + u] = (window["innerVar" + u]/window["nOMAlt" + u]).toFixed(2);
 
 
-                  window["outerAvg" + u] = (window["outerVar" + u]/window["nOM" + u]).toFixed(2);
+                  window["outerAvg" + u] = (window["outerVar" + u]/window["nOMAlt" + u]).toFixed(2);
 
 
-                  window["bottomAvg" + u] = (window["bottomVar" + u]/window["nOM" + u]).toFixed(2);
+                  window["bottomAvg" + u] = (window["bottomVar" + u]/window["nOMAlt" + u]).toFixed(2);
             }
 
-              // window["eventScoreArray" + u] = [];
-              //
-              //
-              // window["autoArray" + u] = [];
+
               p++;
               reps++;
               if(reps == teamArray.length) {
@@ -283,7 +281,7 @@ function getTeamScores (tKey, eKey, u) {
                   console.log("running");
                   for(v = 0; v < teamArray.length; v++) {
                     // console.log(window["avg" + v]);
-                    finalArray.push(window["avg" + v]);
+                    // finalArray.push(window["avg" + v]);
                     finalArray2.push(window["autoAvg" + v]);
                     finalArray3.push(window["tOPAvg" + v]);
                     finalArray4.push(window["innerAvg" + v]);

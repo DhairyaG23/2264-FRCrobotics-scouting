@@ -114,7 +114,7 @@ media="(prefers-color-scheme: dark)">
             <div class="formCenter">
               <form onsubmit="return false;">
                 <select class="js-example-basic-single" name="state" id="event-chosen">
-                  <option class="original-option">Choose an Event (Reload if events don't appear):</option>
+                  <option class="original-option">Choose an Event (Type something if events don't appear):</option>
                 </select>
               </form>
             </div>
@@ -129,11 +129,15 @@ media="(prefers-color-scheme: dark)">
 
           <br>
           <div class="sometimes">
-          <div width=device-width class="inline-centering"><picture>
- <source srcset="loading2.gif"
-media="(prefers-color-scheme: dark)">
- <img src="loading.gif" class="loading">
-</picture></div>
+          <div width=device-width class="inline-centering, loading"><picture>
+            <div class="sk-folding-cube">
+              <div class="sk-cube1 sk-cube"></div>
+              <div class="sk-cube2 sk-cube"></div>
+              <div class="sk-cube4 sk-cube"></div>
+              <div class="sk-cube3 sk-cube"></div>
+            </div>
+
+        </picture></div>
         <div class="horizontal-scroll-except-first-column" id="myItemTable" class= "table-container">
             <center>
                 <table  class="sortable" id="table">

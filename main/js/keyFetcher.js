@@ -90,15 +90,7 @@ function sendEvent(){
 // // // // // // //
 
 function nameList(){
-    // //console.log(nameArray);
-    // nameArray.forEach(function (name) {
-    // form = document.getElementById('event-chosen');
-    //
-    //   let option = document.createElement('option');
-    //   form.appendChild(option);
-    //
-    //   option.innerHTML += name;
-    //   //console.log(nameArray);
+
 }
 
 var url = new URL(window.location.href);
@@ -111,23 +103,7 @@ function makeRequest(x){
   //console.log(params.get('listID'))
 
   checkParams();
-  // var teamRequest = new XMLHttpRequest();
-  // teamRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x , true);
-  // teamRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-  // teamRequest.send();
-  // teamRequest.onreadystatechange = function() {
-  //     if (this.readyState == 4 && this.status == 200){
-  //
-  //
-  //         var teamRequestObj = JSON.parse(this.responseText);
-  //         var a;
-  //
-  //         for (a = 0; a < teamRequestObj.length; a++) {
-  //             teamArray.push(teamRequestObj[a].first_event_id)
-  //       }
-  //
-  //     //console.log(teamArray);
-  //     }
+
   }
 
 function geteNameDelay(){
