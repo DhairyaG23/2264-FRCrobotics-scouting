@@ -368,7 +368,9 @@ function putItems() {
 
         $('.loading').fadeOut(600);
         $('.sortable').fadeIn(1000);
-        
+        var myTH = document.getElementById('teamNames');
+        sorttable.innerSortFunction.apply(myTH, []);
+        sorttable.innerSortFunction.apply(myTH, []);
         $('.makeEpicAppear').fadeIn(500);
 
         clear();
@@ -463,19 +465,27 @@ function makeList(x){
             teamArray.push(teamRequestObj[a].nickname);
             tKeyArray.push(teamRequestObj[a].key);
             teamNumArray.push(teamRequestObj[a].team_number);
-              var teamRankRequest = new XMLHttpRequest();
-            teamRankRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/" + tKeyArray[a] + "/event/" + x + "/status"  , true);
-            teamRankRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-            teamRankRequest.send();
-            teamRankRequest.onreadystatechange = function(){
-              if(this.readyState == 4 && this.status == 200){
-                teamRankObj = JSON.parse(this.responseText);
-                // console.log(teamRankObj.qual.rank);
-                teamRankArray.push(teamRankObj.qual.ranking.rank);
+            // console.log(teamRequestObj[a].team_number)
 
-              }
-            }
         }
+        var q;
+        var indexKey;
+          var teamRankRequest = new XMLHttpRequest();
+        teamRankRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x + "/teams/statuses"  , true);
+        teamRankRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+        teamRankRequest.send();
+        teamRankRequest.onreadystatechange = function(){
+          if(this.readyState == 4 && this.status == 200){
+            teamRankObj = JSON.parse(this.responseText);
+            // console.log(teamRankObj.qual.rank);
+            for(q = 0; q < teamNumArray.length; q++){
+              indexKey = tKeyArray[q];
+              teamRankArray.push(teamRankObj[indexKey].qual.ranking.rank);
+              // console.log(teamRankObj[indexKey].qual.ranking.rank)
+            }
+          }
+        }
+
         // reset();
         getKeys();
 
