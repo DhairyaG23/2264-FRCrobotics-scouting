@@ -372,6 +372,7 @@ function putItems() {
 
         $('.loading').fadeOut(600);
         $('.sortable').fadeIn(1000);
+
         var myTH = document.getElementById('teamRanks');
         sorttable.innerSortFunction.apply(myTH, []);
         sorttable.innerSortFunction.apply(myTH, []);
@@ -388,6 +389,7 @@ function clear() {
       finalArray5 = [];
       finalArray6 = [];
       finalArray7 = [];
+      teamRankArray = [];
       for (pp = 0; pp < teamArray.length; pp++) {
         // console.log("running");
         // window["teamTotal" + pp] = 0;
@@ -449,7 +451,7 @@ function makeList(x){
   currentEvent = x;
   $('ul').empty()
   teamArray = [];
-  teamRankArray = [];
+  // teamRankArray = [];
   teamNumArray = [];
   tKeyArray = [];
   eventKey = x;
