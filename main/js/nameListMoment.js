@@ -191,14 +191,7 @@ function getTeamScores (tKey, eKey, u) {
             window["teamAlliance" + u] = "";
             for(matchNum = 0; matchNum < window["teamScoreRequestObj" + u].length; matchNum++) {
                 blueKeyArray = window["teamScoreRequestObj" + u][matchNum].alliances.blue.team_keys;
-                window["keyk" + u + "00" + String(matchNum)] = 0;
-                for(window["keyk" + u + "00" + String(matchNum)] = 0; window["keyk" + u + "00" + String(matchNum)] < 3;) {
-                    if(tKey == blueKeyArray[window["keyk" + u + "00" + String(matchNum)]]) {
-                        // console.log(window["keyk" + u + "00" + String(matchNum)]);
-                        window["keykey" + u + "00" + String(matchNum)] = window["keyk" + u + "00" + String(matchNum)] + 1;
-                        window["keyk" + u + "00" + String(matchNum)] = 3;
-
-                        window["teamAlliance" + u] = "blue";
+                    if(blueKeyArray.includes(tKey)) {
                         if(window["teamScoreRequestObj" + u].length == 0) {
 
                         } else {
@@ -212,29 +205,25 @@ function getTeamScores (tKey, eKey, u) {
                             }
                       }
                     } else {
-                        window["keyk" + u + "00" + String(matchNum)]++;
+                      if(window["teamScoreRequestObj" + u].length == 0) {
+
+                      } else {
+                        if(window["teamScoreRequestObj" + u][matchNum].alliances.red.score >= 0) {
+                            window["teamTotal" + u] += window["teamScoreRequestObj" + u][matchNum].alliances.red.score
+                            window["outerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoCellsOuter + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsOuter;
+                            window["innerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoCellsInner + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsInner;
+                            window["bottomVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoCellsBottom + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsBottom;
+                            window["autoTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoPoints;
+                            window["tOPTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopPoints;
+                          }
+                      }
                     }
+
                 }
                 //FIX LINE UNDERNEATH!!!!
-                if(window["teamAlliance" + u] == "blue") {
 
-                } else {
-                  if(window["teamScoreRequestObj" + u].length == 0) {
 
-                  } else {
-                    if(window["teamScoreRequestObj" + u][matchNum].alliances.red.score >= 0) {
-                        window["teamTotal" + u] += window["teamScoreRequestObj" + u][matchNum].alliances.red.score
-                        window["outerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoCellsOuter + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsOuter;
-                        window["innerVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoCellsInner + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsInner;
-                        window["bottomVar" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoCellsBottom + window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopCellsBottom;
-                        window["autoTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.autoPoints;
-                        window["tOPTotal" + u] += window["teamScoreRequestObj" + u][matchNum].score_breakdown.red.teleopPoints;
-                      }
-                  }
-                }
-                window["teamAlliance" + u] = "";
 
-              }
               if(window["teamScoreRequestObj" + u].length == 0 ||window["WLTRec" + u] +  window["WLTRecA" + u] +  window["WLTRecB" + u] == 0 ) {
                 window["avg" + u] = "No Info";
 
